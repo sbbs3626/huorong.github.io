@@ -1,0 +1,91 @@
+/*
+ * @Author: Alan.zheng 
+ * @Date: 2019-06-20 13:33:02 
+ * @Last Modified by: Alan.zheng
+ * @Last Modified time: 2019-06-20 14:53:46
+ */
+.first {
+    height: 660px;
+    background-image: url('../images/first-detail-bg.jpg');
+}
+.second {
+    padding-top: 1px;
+}
+.detail {
+    margin-top: 50px;
+    width: 1200px;
+    border: 1px solid #a58377;
+    background: url('../images/detail-bg.png') repeat #fff;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+            box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+    color: #9c6856;
+    font-size: 16px;
+}
+.detail a {
+     color: #9c6856;
+}
+.crumbs {
+    padding: 10px 15px;
+    background: url('../images/detail-crumbs-bg.png') repeat #d3c0b2;
+    color: #794724;
+}
+.detail-title {
+    padding: 35px 0;
+    text-align: center;
+    font-size: 48px;
+}
+.tab {
+    border-bottom: 1px solid #a97c6d;
+    text-align: center;
+}
+.tab a {
+    position: relative;
+    display: inline-block;
+    margin: 0 15px;
+    margin-bottom: -1px;
+    padding:0 0 20px 0;
+    color: #502618;
+    font-size: 18px;
+}
+.tab a.cur {
+    background: url('../images/icon-top.png') no-repeat center bottom;
+}
+.video-list li {
+    float: left;
+    margin: 15px 0 0 0;
+    width: 33.33%;
+    text-align: center;
+}
+.video-list .cen {
+    padding: 0 8px;
+}
+.video-list .cen a {
+    display: block;
+}
+.video-list .cen img {
+    border: 1px solid #eee;
+}
+.video-list p {
+    margin-top: 5px;
+}
+.left {
+    float: left;
+    padding:10px;
+     padding-bottom: 100px;
+     min-height: 400px;
+    width: 927px;
+     border-right: 1px solid #eddfd3;
+}
+.right {
+    float: right;
+    padding:0 20px;
+    width: 270px;
+}
+.download-slide h3 {
+    margin: 10px 0;
+    font-size: 32px;
+}
+.download-slide a {
+    display: inline-block;
+    margin-bottom: 15px;
+}

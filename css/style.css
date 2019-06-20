@@ -23,6 +23,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background: #5a270f;
     overflow-x: hidden;
+    color: #af8640;
 }
 
 body,
@@ -271,6 +272,37 @@ a,
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
+.video-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    display: none;
+}
+.video-box .video {
+    background: #fff;
+    width: 800px;
+    min-height: 460px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+       -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+}
+.video-box .video-close {
+    background: url('../images/icon-close.png') no-repeat center top;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: -39px;
+    cursor: pointer;
+}
 
 .first-download {
     background: url('../images/first-download-bg.png') no-repeat center top;
@@ -379,7 +411,8 @@ a,
     background-position: 0 -215px;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu a.cur {
     background-position-x: -182px;
 }
 
@@ -677,10 +710,14 @@ a,
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
 }
+.third-race {
+    position: relative;
+    z-index: 2;
+}
 .third-race span {
     position: absolute;
     cursor: pointer;
-    background: url('../images/race/icon-race.png') no-repeat 0 0;
+    background: url('../images/icon-race.png') no-repeat 0 0;
     width: 80px;
     height: 80px;
     display: block;
@@ -694,8 +731,8 @@ a,
     background-position: 0 0;
 }
 .third-race .rape-2 {
-    top: 180px;
-    left: 114px;
+        top: 160px;
+        left: 130px;
     background-position: 0 -80px;
 }
 .third-race .rape-3 {
@@ -714,44 +751,112 @@ a,
     background-position: 0 -320px;
 }
 .third-race .rape-6 {
-    top: 180px;
-    left:1050px;
+    top: 160px;
+    left:1030px;
     background-position: 0 -400px;
 }
 .third-race .cur {
     width: 290px;
     height: 185px;
-    background-image: url('../images/race/icon-race-hover.png');
+    background-image: url('../images/icon-race-hover.png');
 }
 .third-race .rape-1.cur {
-    top:330px;
-    left:-105px;
+       top: 273px;
+       left: -81px;
     background-position: 0 0;
 }
 .third-race .rape-2.cur {
-     top: 180px;
-     left: 114px;
+        top: 120px;
+        left: 32px;
     background-position: 0 -185px;
 }
 .third-race .rape-3.cur {
-     top: 34px;
-     left: 293px;
+    top: -26px;
+    left: 199px;
     background-position: 0 -370px;
 }
 .third-race .rape-4.cur {
-    top: -43px;
-    left: 578px;
+        top: -86px;
+        left: 480px;
     background-position: 0 -555px;
 }
 .third-race .rape-5.cur {
-    top: 34px;
-    left: 855px;
+       top: -25px;
+       left: 744px;
     background-position: 0 -740px;
 }
 .third-race .rape-6.cur {
-    top: 180px;
-    left:1050px;
+    top: 133px;
+    left: 947px;
     background-position: 0 -925px;
+}
+.third-role {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+      z-index: 2;
+    margin-top: 250px;
+}
+.third-role-tab {
+    text-align: center;
+      z-index: 2;
+    position: relative;
+}
+.third-role-tab span {
+    display: inline-block;
+    margin: 0 5px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.third-role-tab span:hover {
+    opacity: .8;
+}
+.third-role-tab span img {
+    width: 100%;
+    height: 100%;
+}
+.third-role-tab span.cur {
+    width: 130px;
+    height: 130px;
+}
+.third-role-tab-box {
+    width:400px;
+    position: absolute;
+    font-size: 24px;
+    bottom: 0;
+    left: 50%;
+    height: 310px;
+    -webkit-transform: translateX(-50%);
+       -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+.third-role-tab-box h3 {
+    font-size: 60px;
+    margin: 0 0 10px 0;
+}
+.third-role-tab-box .thumb {
+    position: absolute;
+    width: 250px;
+    left:-20px;
+    -webkit-transform: translateX(-100%);
+       -moz-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+    top: 0;
+}
+.third-role-tab-box .img {
+    width: 950px;
+    -webkit-transform: translateX(80%);
+       -moz-transform: translateX(80%);
+        -ms-transform: translateX(80%);
+            transform: translateX(80%);
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 /*式神介绍 end*/
 
