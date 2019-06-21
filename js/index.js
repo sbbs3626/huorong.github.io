@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 16:16:16 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-20 13:52:20
+ * @Last Modified time: 2019-06-21 17:26:41
  */
 $(function () {
     $('.first-parallax').parallax({
@@ -11,11 +11,6 @@ $(function () {
         frictionY: 0.8
     });
     
-    $('.first-play,.video-close').on('click',function(){
-        // 视频播放
-        $('.video-box').fadeToggle();
-    });
-
     var bannerSwiper = new Swiper('.banner .swiper-container', {
         // banner
         loop: true,
@@ -91,6 +86,6 @@ $(function () {
             '<div class="thumb"><img src="images/role-' + (_index + 1) + '/' + 'thumb.png"></div>' +
             '<div class="img"><img src="images/role-' + (_index + 1) + '/' + 'img.png"></div>';
         $('.third-role-tab-box').html(boxHtml);
-
+        
     }
 });

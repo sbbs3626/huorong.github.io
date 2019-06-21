@@ -2,90 +2,319 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-20 13:33:02 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-20 14:53:46
+ * @Last Modified time: 2019-06-21 10:49:25
  */
 .first {
     height: 660px;
     background-image: url('../images/first-detail-bg.jpg');
 }
+
 .second {
-    padding-top: 1px;
+    padding: 1px 0;
+    height: auto;
 }
+
 .detail {
-    margin-top: 50px;
+    position: relative;
+    margin: 50px auto 50px auto;
     width: 1200px;
     border: 1px solid #a58377;
     background: url('../images/detail-bg.png') repeat #fff;
     -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .3);
-            box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .3);
     color: #9c6856;
     font-size: 16px;
 }
-.detail a {
-     color: #9c6856;
+
+.detail::before {
+    position: absolute;
+    top: -32px;
+    right: -26px;
+    width: 61px;
+    height: 51px;
+    background: url('../images/icon-flower.png') no-repeat;
+    content: '';
+
 }
+
+.detail a {
+    color: #9c6856;
+}
+
 .crumbs {
     padding: 10px 15px;
     background: url('../images/detail-crumbs-bg.png') repeat #d3c0b2;
     color: #794724;
 }
+
 .detail-title {
-    padding: 35px 0;
+    padding: 35px 50px;
     text-align: center;
     font-size: 48px;
 }
-.tab {
+
+.detail-info {
+    padding-bottom: 20px;
+}
+
+.detail-info .time {
+    margin: 0 15px;
+}
+
+.tab,
+.detail-info {
     border-bottom: 1px solid #a97c6d;
     text-align: center;
 }
+
 .tab a {
     position: relative;
     display: inline-block;
     margin: 0 15px;
     margin-bottom: -1px;
-    padding:0 0 20px 0;
+    padding: 0 0 20px 0;
     color: #502618;
     font-size: 18px;
 }
+
 .tab a.cur {
     background: url('../images/icon-top.png') no-repeat center bottom;
 }
+
 .video-list li {
     float: left;
     margin: 15px 0 0 0;
     width: 33.33%;
     text-align: center;
 }
+
 .video-list .cen {
     padding: 0 8px;
 }
+
 .video-list .cen a {
     display: block;
 }
+
 .video-list .cen img {
     border: 1px solid #eee;
 }
+
 .video-list p {
     margin-top: 5px;
 }
+
+.news-list li {
+    padding: 30px;
+    border-bottom: 1px solid #eee1d6;
+}
+
+.news-list .flft {
+    float: left;
+    width: 5em;
+}
+
+.news-list .type {
+    display: inline-block;
+    margin: 0 auto;
+    margin-top: 3px;
+    padding: 5px 15px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: #f1b000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1;
+
+}
+
+.news-list .type-brown {
+    background: #794724;
+}
+
+.news-list .type-red {
+    background: #b81101;
+}
+
+.news-list .flright {
+    float: left;
+    width: 750px;
+}
+
+.news-list .flright .omg {
+    display: inline-block;
+    float: left;
+    width: 80%;
+    font-weight: bold;
+}
+
+.news-list .flright .time {
+    float: right;
+}
+
+.news-list .flright .text {
+    overflow: hidden;
+    margin-top: 10px;
+    height: 4.5em;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/*编辑器内容*/
+
+.editor-box {
+    padding: 30px;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.editor-box p {
+    margin: 15px 0;
+}
+
+.editor-box img,
+.editor-box table {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/*编辑器内容*/
 .left {
     float: left;
-    padding:10px;
-     padding-bottom: 100px;
-     min-height: 400px;
+    padding: 10px;
+    padding-bottom: 50px;
+    min-height: 400px;
     width: 927px;
-     border-right: 1px solid #eddfd3;
+    border-right: 1px solid #eddfd3;
 }
+
 .right {
     float: right;
-    padding:0 20px;
+    padding: 0 20px;
     width: 270px;
 }
+
 .download-slide h3 {
     margin: 10px 0;
     font-size: 32px;
 }
+
 .download-slide a {
     display: inline-block;
     margin-bottom: 15px;
+}
+
+.page-nav {
+    margin-top: 50px;
+}
+
+.pagination {
+    display: inline-block;
+    margin: 20px 0;
+    padding-left: 0;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination li a {
+    padding: 5px 9px;
+    border: 1px solid #794724;
+}
+
+.pagination li a:hover {
+    background: #e8e8e8;
+}
+
+.pagination .active a,
+.pagination .active a:hover {
+    background: #794724;
+    color: #fff;
+}
+
+.pagination .disabled a {
+    border-color: #ddd;
+    color: gray;
+    cursor: default;
+}
+
+@media screen and (max-width:768px) {
+
+    .container,
+    .left,
+    .right,
+    .news-list .flright {
+        width: 100%;
+    }
+
+    .second,
+    .second-border {
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+
+    .detail {
+        margin: 15px auto 15px auto;
+        width: 94%;
+    }
+    .detail::before {
+        display: none;
+    }
+
+    .right {
+        display: none;
+    }
+
+    .detail-title {
+        padding: 15px 0;
+        font-size: 0.95rem;
+    }
+
+    .tab a {
+        padding-bottom: 10px;
+    }
+
+    .news-list li {
+        padding: 15px 5px;
+    }
+
+    .news-list .flright .time {
+        font-size: .3rem;
+    }
+
+    .news-list .flright .omg {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+        -moz-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+    }
+
+    .news-list li .title {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -ms-flex-align: center;
+    }
+
+    .news-list .flright .text {
+        font-size: .3rem;
+    }
+    .crumbs {
+         padding: 5px 15px;
+         font-size: .3rem;
+    }
+
+    .page-nav {
+        margin-top: 30px;
+    }
 }

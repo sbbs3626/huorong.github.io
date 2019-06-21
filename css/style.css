@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-19 15:47:18
+ * @Last Modified time: 2019-06-21 17:47:08
  */
 * {
     -webkit-box-sizing: border-box;
@@ -104,7 +104,15 @@ a,
 .yellow {
     color: #bba43d;
 }
-
+.mtop10 {
+    margin-top: 10px;
+}
+.mtop15 {
+    margin-top: 15px;
+}
+.mtop20 {
+    margin-top: 20px;
+}
 .margin10 {
     margin: 10px 0;
 }
@@ -272,17 +280,22 @@ a,
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
-.video-box {
+.video-box,
+.fixed-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
     z-index: 9999;
     display: none;
 }
-.video-box .video {
+.fixed-bg {
+    display: block;
+}
+.video-box .video,
+.mylayer-content {
     background: #fff;
     width: 800px;
     min-height: 460px;
@@ -293,6 +306,35 @@ a,
        -moz-transform: translate(-50%,-50%);
         -ms-transform: translate(-50%,-50%);
             transform: translate(-50%,-50%);
+}
+.mylayer-content {
+    width: 80%;
+    padding: 30px;
+    position: relative;
+    min-height: 100px;
+    font-size: .4rem;
+    border: 2px solid #1c0400;
+    -webkit-border-radius: 10px;
+            border-radius: 10px;
+}
+.mylayer-close {
+    background: url('../images/icon-close2.png') no-repeat;
+    width: 17px;
+    height: 17px;
+    top: 10px;
+    position: absolute;
+    right: 10px;
+    -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+}
+
+
+.mylayer-btn {
+    background: #ffd318;
+    padding: 5px 25px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-right: 0;
 }
 .video-box .video-close {
     background: url('../images/icon-close.png') no-repeat center top;
@@ -353,9 +395,6 @@ a,
     top: -71px;
     z-index: 999;
 }
-
-
-
 .menu {
     padding-top: 92px;
     font-size: 0;
@@ -434,7 +473,7 @@ a,
 }
 
 .second-border {
-    background: url('../images/second-border.png') no-repeat center bottom fixed;
+    background: url('../images/second-border.png') no-repeat center bottom;
     position: absolute;
     left: 0;
     top: 0;
@@ -859,6 +898,26 @@ a,
     bottom: 0;
 }
 /*式神介绍 end*/
+/*footer*/
+.footer {
+    text-align: center;
+    background: #000000;
+    padding: 50px 0;
+    font-size: 20px;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
+    margin: 0 3px;
+}
+.footer p {
+    margin-top: 5px;
+}
+.footer .cop {
+    margin-left: 10px;
+}
+/*footer*/
 
 @media (max-width: 1440px) {
     .menu-cloud {
@@ -872,3 +931,102 @@ a,
         transform-origin: 100%;
     }
 }
+@media (min-width:769px) {
+    .visible-xs {
+        display: none !important;
+    }
+}
+@media screen and (max-width:768px) {
+    .container,
+    .first-slogan {
+       width: 100%; 
+    }
+    .hidden-xs {
+        display: none !important;
+    }
+    .visible-xs {
+        display: block !important;
+    }
+    .first {
+        background-image: url('../images/first-bg-m.jpg')!important;
+        height: 16rem !important;
+        -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+    }
+    .logo img {
+        margin-top: 1.3rem;
+        width: 60%;
+    }
+    .first-slogan {
+        height: 3.24rem;
+        bottom: 3rem;
+        background-image: url('../images/first-slogan-m.png');
+        -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+    }
+    .first-download {
+        width: 100%;
+        height: 1.8666rem;
+        bottom: 1.3rem;
+        -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+    }
+    .first-download .box {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: .56rem auto 0;
+        width: 76%;
+    }
+    .first-play {
+        -webkit-transform: scale(.5);
+           -moz-transform: scale(.5);
+            -ms-transform: scale(.5);
+                transform: scale(.5);
+        position: absolute;
+        top: -55px;
+    }
+    .first-surprise {
+        background: url('../images/icon-surprise.png') no-repeat 0 0;
+        width: 367px;
+        height: 381px;
+        position: absolute;
+        left: 50%;
+        bottom: -0.5rem;
+        -webkit-transform: translateX(-50%) scale(.5);
+           -moz-transform: translateX(-50%) scale(.5);
+            -ms-transform: translateX(-50%) scale(.5);
+                transform: translateX(-50%) scale(.5);
+    }
+    .video-box .video {
+        width:100%;
+        min-height: 5rem;
+    }
+    .video-box .video-close {
+        top: 0;
+        right: 0;
+        -webkit-transform: translateY(-100%);
+            -moz-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
+    }
+    .menu-box {
+        background: none;
+    }
+    .footer {
+        font-size: .35rem;
+        padding: 0.46875rem;
+    }
+    .footer img{
+        max-width: 80%;
+    }
+    .footer a {
+        margin: 0;
+    }
+    .footer .cop {
+        margin: 0;
+        display: block;
+    }
+};
