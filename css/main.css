@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-20 13:33:02 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-21 10:49:25
+ * @Last Modified time: 2019-06-24 10:38:35
  */
 .first {
     height: 660px;
@@ -313,8 +313,19 @@
          padding: 5px 15px;
          font-size: .3rem;
     }
-
+    .detail-title-m {
+        font-size: .4rem;
+    }
+    .editor-box {
+        padding: 10px;
+    }
+    .detail-info {
+        font-size: .3rem;
+    }
     .page-nav {
         margin-top: 30px;
+    }
+    .video-list li {
+        width: 49.9%;
     }
 }
