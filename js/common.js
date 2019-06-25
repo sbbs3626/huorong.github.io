@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:31:24 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-24 13:25:29
+ * @Last Modified time: 2019-06-25 14:37:00
  */
 /*REM begin*/
 // 128 px（ 盒子） / 640 px(设计稿) * 10 == 2 rem;
@@ -82,8 +82,8 @@ var ST = {
         var _index = ST._index;
         var boxHtml = '<h3>' + roleData[_index][i].name + '</h3>' +
             '<div class="text">' + roleData[_index][i].description + '</div>' +
-            '<div class="thumb"><img src="images/role-' + (_index + 1) + '/' + 'thumb.png"></div>' +
-            '<div class="img"><img src="images/role-' + (_index + 1) + '/' + 'img.png"></div>';
+            '<div class="thumb"><img src="images/role-' + (_index + 1) + '/' + 'thumb-' + (_index + 1) + '.png"></div>' +
+            '<div class="img"><img src="images/role-' + (_index + 1) + '/' + 'img-' + (_index + 1) + '.png"></div>';
         $('.third-role-tab-box').html(boxHtml);
 
     }
@@ -92,20 +92,22 @@ var ST = {
 /*导航悬停*/
 $(function () {
     var $menu = $("#menuBox");
-    var menuTop = $menu.offset().top + 200;
-    if (!ST.isMobile()) {
-        $(window).on("scroll", function () {
-            var windowTop = $(window).scrollTop();
-            if (parseInt(windowTop) > parseInt(menuTop)) {
-                $menu.addClass("fixed");
-            } else {
-                $menu.removeClass("fixed");
-            }
+    if ($menu.length>0) {
+        var menuTop = $menu.offset().top + 200;
+        if (!ST.isMobile()) {
+            $(window).on("scroll", function () {
+                var windowTop = $(window).scrollTop();
+                if (parseInt(windowTop) > parseInt(menuTop)) {
+                    $menu.addClass("fixed");
+                } else {
+                    $menu.removeClass("fixed");
+                }
+            });
+        }
+        $menu.on('click', 'a', function () {
+            $(this).addClass('cur').siblings().removeClass('cur');
         });
     }
-    $menu.on('click', 'a', function () {
-        $(this).addClass('cur').siblings().removeClass('cur');
-    });
     $('.first-play,.video-close').on('click', function () {
         // 视频播放
         $('.video-box').fadeToggle();

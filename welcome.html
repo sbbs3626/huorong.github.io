@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>欢迎页面</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/welcome.css">
+</head>
+
+<body>
+<div class="welcome">
+    <div class="cloud"></div>
+    <div class="door-left"></div>
+    <div class="door-right"></div>
+    <div class="nprogress">
+        <div class="nprogress-left"><span class="nprogress-bar"></span></div>
+        <div class="nprogress-center"><span class="num">0</span>%</div>
+        <div class="nprogress-right"><span class="nprogress-bar"></span></div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function(){
+        // 开门动画
+        $('.nprogress-left .nprogress-bar').animate({width:'100%'},1500,function () {
+            $('.nprogress-right .nprogress-bar').animate({width:'100%'},1500)
+        });
+        var num = 0;
+        var nprogressNum = setInterval(function(){
+             $('.nprogress-center .num').html(num++);
+             if(num > 100){
+                clearInterval(nprogressNum);
+                $('.door-left,.door-right').addClass('active');
+                $('.welcome').fadeOut(1000);
+             }
+        }, 30);
+    })
+    
+</script>
+</body>
+
+</html>

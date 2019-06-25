@@ -2,170 +2,14 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-21 17:47:08
+ * @Last Modified time: 2019-06-25 11:43:50
  */
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
-}
 
-*:before,
-*:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
-}
-
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "WenQuanYi Micro Hei", "Microsoft Yahei", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: #5a270f;
-    overflow-x: hidden;
-    color: #af8640;
-}
-
-body,
-ul,
-ol,
-li,
-dl,
-dt,
-dd,
-p,
-form,
-fieldset,
-table,
-td,
-img,
-div {
-    margin: 0;
-    padding: 0;
-}
-
-ul,
-ol,
-li {
-    list-style: none;
-}
-
-a {
-    color: #7d7d7d;
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-}
-
-a,
-.ani {
-    -webkit-transition: all .3s linear;
-    -moz-transition: all .3s linear;
-    transition: all .3s linear;
-}
-
-.clearfix:before,
-.clearfix:after {
-    display: table;
-    content: '';
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-.clearfix {
-    *zoom: 1;
-    /*IE/7/6*/
-}
-
-.s-left {
-    float: left;
-}
-
-.s-right {
-    float: right;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.yellow {
-    color: #bba43d;
-}
-
-.mtop10 {
-    margin-top: 10px;
-}
-
-.mtop15 {
-    margin-top: 15px;
-}
-
-.mtop20 {
-    margin-top: 20px;
-}
-
-.margin10 {
-    margin: 10px 0;
-}
-
-.margin20 {
-    margin: 20px 0;
-}
-
-.margin30 {
-    margin: 30px 0;
-}
-
-.omg {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis
-}
-
-.over-scroll {
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
-
-.over-scroll::-webkit-scrollbar {
-    width: 6px;
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    background-color: #cfcfcf;
-}
-
-.over-scroll::-webkit-scrollbar-track {
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    background-color: #cfcfcf;
-
-}
-
-.over-scroll::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 20px;
-    border-radius: 20px;
-    background-color: #aeaeae;
-}
-
-/*layout.css end*/
 
 .first {
+    position: relative;
     height: 1003px;
     background: url('../images/first-bg.jpg') no-repeat center top;
-    position: relative;
 
 }
 
@@ -188,25 +32,25 @@ a,
 }
 
 .logo {
-    text-align: center;
     position: relative;
     z-index: 4;
+    text-align: center;
 }
 
 /*人物*/
 .first-people {
     position: absolute;
-    width: 1200px;
-    left: 50%;
-    margin-left: -600px;
     bottom: 40px;
+    left: 50%;
     z-index: 2;
+    margin-left: -600px;
+    width: 1200px;
 }
 
 .first-people .layer {
     position: absolute;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
 }
 
@@ -244,37 +88,37 @@ a,
 }
 
 .first-people .first-people-7 {
-    left: 440px;
     bottom: 48px;
+    left: 440px;
 }
 
 .first-people .first-people-8 {
-    left: 127px;
     bottom: 98px;
+    left: 127px;
 }
 
 .first-slogan {
-    background: url('../images/first-slogan.png') no-repeat center top;
-    width: 1374px;
     position: absolute;
-    left: 50%;
     bottom: 220px;
+    left: 50%;
+    z-index: 3;
+    width: 1374px;
+    height: 171px;
+    background: url('../images/first-slogan.png') no-repeat center top;
+    text-align: center;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    height: 171px;
-    z-index: 3;
-    text-align: center;
 }
 
 .first-play {
-    width: 182px;
-    background: url('../images/icon-play.png') no-repeat center top;
-    height: 133px;
-    margin-top: 25px;
-    display: inline-block;
     position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    width: 182px;
+    height: 133px;
+    background: url('../images/icon-play.png') no-repeat center top;
     cursor: pointer;
 }
 
@@ -290,11 +134,11 @@ a,
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9999;
+    display: none;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 9999;
-    display: none;
 }
 
 .fixed-bg {
@@ -303,12 +147,12 @@ a,
 
 .video-box .video,
 .mylayer-content {
-    background: #fff;
-    width: 800px;
-    min-height: 460px;
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
+    min-height: 460px;
+    width: 800px;
+    background: #fff;
     -webkit-transform: translate(-50%, -50%);
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -316,59 +160,59 @@ a,
 }
 
 .mylayer-content {
-    width: 80%;
-    padding: 30px;
     position: relative;
+    padding: 30px;
     min-height: 100px;
-    font-size: .4rem;
+    width: 80%;
     border: 2px solid #1c0400;
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    font-size: .4rem;
 }
 
 .mylayer-close {
-    background: url('../images/icon-close2.png') no-repeat;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     width: 17px;
     height: 17px;
-    top: 10px;
-    position: absolute;
-    right: 10px;
+    background: url('../images/icon-close2.png') no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
 }
 
 
 .mylayer-btn {
-    background: #ffd318;
     padding: 5px 25px;
     border: 1px solid #ccc;
     border-top: 0;
     border-right: 0;
+    background: #ffd318;
 }
 
 .video-box .video-close {
-    background: url('../images/icon-close.png') no-repeat center top;
-    width: 39px;
-    height: 39px;
     position: absolute;
     top: 0;
     right: -39px;
+    width: 39px;
+    height: 39px;
+    background: url('../images/icon-close.png') no-repeat center top;
     cursor: pointer;
 }
 
 .first-download {
-    background: url('../images/first-download-bg.png') no-repeat center top;
-    width: 848px;
     position: absolute;
-    left: 50%;
     bottom: 110px;
+    left: 50%;
+    z-index: 11;
+    width: 848px;
+    height: 140px;
+    background: url('../images/first-download-bg.png') no-repeat center top;
+    text-align: center;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    height: 140px;
-    z-index: 11;
-    text-align: center;
 }
 
 .first-download .box {
@@ -376,8 +220,8 @@ a,
 }
 
 .first-download .box a {
-    display: inline-block;
     position: relative;
+    display: inline-block;
 }
 
 .first-download .box a:hover {
@@ -391,13 +235,13 @@ a,
 /*人物 end*/
 /*导航*/
 .menu-box {
-    height: 193px;
-    width: 100%;
-    background: url('../images/menu-bg.png') no-repeat center top;
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: 2;
+    width: 100%;
+    height: 193px;
+    background: url('../images/menu-bg.png') no-repeat center top;
 }
 
 .menu-box.fixed {
@@ -407,21 +251,21 @@ a,
 }
 
 .menu {
-    padding-top: 92px;
-    font-size: 0;
     position: relative;
     z-index: 2;
+    padding-top: 92px;
+    font-size: 0;
 }
 
 .menu a {
-    background: url('../images/menu.png') no-repeat 0 0;
+    position: relative;
     display: inline-block;
+    margin: 0 15px;
     width: 182px;
     height: 43px;
-    line-height: 43px;
+    background: url('../images/menu.png') no-repeat 0 0;
     text-align: center;
-    position: relative;
-    margin: 0 15px;
+    line-height: 43px;
     -webkit-transition: all .2s linear;
     -moz-transition: all .2s linear;
     transition: all .2s linear;
@@ -429,11 +273,11 @@ a,
 
 .menu a:after {
     position: absolute;
-    width: 2px;
-    background: url('../images/menu-border.png') no-repeat center center;
-    height: 43px;
     top: 0;
     right: -15px;
+    width: 2px;
+    height: 43px;
+    background: url('../images/menu-border.png') no-repeat center center;
     content: '';
 }
 
@@ -484,30 +328,30 @@ a,
 }
 
 .second-border {
-    background: url('../images/second-border.png') no-repeat center bottom;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background: url('../images/second-border.png') no-repeat center bottom;
 }
 
 .container {
-    width: 1275px;
-    margin: 0 auto;
     position: relative;
+    margin: 0 auto;
+    width: 1275px;
 }
 
 .container .contbox {
-    width: 1220px;
     margin: 0 auto;
     margin-top: 40px;
+    width: 1220px;
 }
 
 .banner {
     position: relative;
-    height: 348px;
     padding-top: 22px;
+    height: 348px;
     background: url('../images/second-banner-bg.png') no-repeat center center;
 }
 
@@ -516,10 +360,10 @@ a,
 .game-prev,
 .game-next {
     position: absolute;
+    top: 50%;
     width: 36px;
     height: 72px;
     cursor: pointer;
-    top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
@@ -537,9 +381,9 @@ a,
 }
 
 .banner .box {
+    margin: 0 auto;
     width: 990px;
     height: 294px;
-    margin: 0 auto;
 }
 
 /*banner end*/
@@ -547,10 +391,10 @@ a,
 /*新闻*/
 .news,
 .follow {
-    height: 475px;
-    width: 600px;
     float: left;
     padding-top: 60px;
+    width: 600px;
+    height: 475px;
 }
 
 .news {
@@ -564,20 +408,20 @@ a,
 
 .news .box,
 .follow .box {
-    width: 510px;
     margin: 0 auto;
+    width: 510px;
 }
 
 .more {
     display: inline-block;
-    background: url('../images/icon-right.png') no-repeat 80px center #9c6856;
     padding: 8px 40px 8px 20px;
-    color: #fff;
-    font-size: 16px;
-    line-height: 1;
     -webkit-border-radius: 20px;
     border-radius: 20px;
+    background: url('../images/icon-right.png') no-repeat 80px center #9c6856;
+    color: #fff;
     font-weight: normal;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .more:hover {
@@ -589,8 +433,8 @@ a,
 }
 
 .news li {
-    border-bottom: 1px solid #ecdcce;
     padding: 12px 0;
+    border-bottom: 1px solid #ecdcce;
 }
 
 .news li:last-child {
@@ -598,29 +442,29 @@ a,
 }
 
 .news li a {
-    color: #9c6856;
     display: block;
+    color: #9c6856;
 }
 
 .news li .flft {
     float: left;
+    margin-right: 5px;
     width: 90px;
     text-align: center;
-    margin-right: 5px;
     font-size: 12px;
 }
 
 .news .type {
-    background: #f1b000;
-    color: #fff;
-    -webkit-border-radius: 4px;
-    border-radius: 4px;
-    padding: 3px 8px;
     display: block;
-    line-height: 1;
-    width: 60%;
     margin: 0 auto;
     margin-top: 3px;
+    padding: 3px 8px;
+    width: 60%;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: #f1b000;
+    color: #fff;
+    line-height: 1;
 
 }
 
@@ -657,19 +501,19 @@ a,
 
 .game-cloud {
     position: absolute;
-    left: 0;
     top: -20px;
+    left: 0;
 }
 
 .game>.container {
-    padding-top: 270px;
     position: relative;
+    padding-top: 270px;
 }
 
 .game .box {
+    margin: 0 auto;
     width: 955px;
     height: 480px;
-    margin: 0 auto;
 }
 
 .game .swiper-slide {
@@ -685,10 +529,10 @@ a,
 }
 
 .game .swiper-slide img {
-    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .4);
-    box-shadow: 0 0 15px rgba(0, 0, 0, .4);
     -webkit-border-radius: 5px;
     border-radius: 5px;
+    -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, .4);
+    box-shadow: 0 0 15px rgba(0, 0, 0, .4);
 }
 
 .game .game-prev,
@@ -742,19 +586,19 @@ a,
 
 .third-border {
     position: absolute;
-    height: 99px;
-    width: 100%;
     bottom: 0;
     left: 0;
+    width: 100%;
+    height: 99px;
     background: url('../images/third-border.png') no-repeat center center;
 }
 
 .third .box {
-    width: 1227px;
-    height: 730px;
     position: absolute;
     bottom: 0;
     left: 50%;
+    width: 1227px;
+    height: 730px;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -768,11 +612,11 @@ a,
 
 .third-race span {
     position: absolute;
-    cursor: pointer;
-    background: url('../images/icon-race.png') no-repeat 0 0;
+    display: block;
     width: 80px;
     height: 80px;
-    display: block;
+    background: url('../images/icon-race.png') no-repeat 0 0;
+    cursor: pointer;
 }
 
 .third-race span:hover {
@@ -852,25 +696,25 @@ a,
 }
 
 .third-role {
-    width: 900px;
-    margin: 0 auto;
     position: relative;
     z-index: 2;
+    margin: 0 auto;
     margin-top: 250px;
+    width: 900px;
 }
 
 .third-role-tab {
-    text-align: center;
-    z-index: 2;
     position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
 .third-role-tab span {
     display: inline-block;
+    overflow: hidden;
     margin: 0 5px;
     width: 100px;
     height: 100px;
-    overflow: hidden;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -890,12 +734,12 @@ a,
 }
 
 .third-role-tab-box {
-    width: 400px;
     position: absolute;
-    font-size: 24px;
     bottom: 0;
     left: 50%;
+    width: 400px;
     height: 310px;
+    font-size: 24px;
     -webkit-transform: translateX(-50%);
     -moz-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -903,45 +747,45 @@ a,
 }
 
 .third-role-tab-box h3 {
-    font-size: 60px;
     margin: 0 0 10px 0;
+    font-size: 60px;
 }
 
 .third-role-tab-box .thumb {
     position: absolute;
-    width: 250px;
+    top: 0;
     left: -20px;
+    width: 250px;
     -webkit-transform: translateX(-100%);
     -moz-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
-    top: 0;
 }
 
 .third-role-tab-box .img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
     width: 950px;
     -webkit-transform: translateX(80%);
     -moz-transform: translateX(80%);
     -ms-transform: translateX(80%);
     transform: translateX(80%);
-    position: absolute;
-    right: 0;
-    bottom: 0;
 }
 
 /*式神介绍 end*/
 /*footer*/
 .footer {
-    text-align: center;
-    background: #000000;
     padding: 50px 0;
-    font-size: 20px;
+    background: #000000;
     color: #fff;
+    text-align: center;
+    font-size: 20px;
 }
 
 .footer a {
-    color: #fff;
     margin: 0 3px;
+    color: #fff;
 }
 
 .footer p {
@@ -989,11 +833,11 @@ a,
     }
 
     .first {
-        background-image: url('../images/first-bg-m.jpg') !important;
+        overflow: hidden;
         height: 16rem !important;
+        background-image: url('../images/first-bg-m.jpg') !important;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
-        overflow: hidden;
     }
 
     .logo img {
@@ -1002,17 +846,17 @@ a,
     }
 
     .first-slogan {
-        height: 3.24rem;
         bottom: 3rem;
+        height: 3.24rem;
         background-image: url('../images/first-slogan-m.png');
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
     }
 
     .first-download {
+        bottom: 1.3rem;
         width: 100%;
         height: 1.8666rem;
-        bottom: 1.3rem;
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
     }
@@ -1028,21 +872,21 @@ a,
     }
 
     .first-play {
+        position: absolute;
+        top: -55px;
         -webkit-transform: scale(.5);
         -moz-transform: scale(.5);
         -ms-transform: scale(.5);
         transform: scale(.5);
-        position: absolute;
-        top: -55px;
     }
 
     .first-surprise {
-        background: url('../images/icon-surprise.png') no-repeat 0 0;
+        position: absolute;
+        bottom: -0.5rem;
+        left: 50%;
         width: 367px;
         height: 381px;
-        position: absolute;
-        left: 50%;
-        bottom: -0.5rem;
+        background: url('../images/icon-surprise.png') no-repeat 0 0;
         -webkit-transform: translateX(-50%) scale(.5);
         -moz-transform: translateX(-50%) scale(.5);
         -ms-transform: translateX(-50%) scale(.5);
@@ -1050,8 +894,8 @@ a,
     }
 
     .video-box .video {
-        width: 100%;
         min-height: 5rem;
+        width: 100%;
     }
 
     .video-box .video-close {
@@ -1071,42 +915,42 @@ a,
 
     .menu-l {
         position: absolute;
-        z-index: 999;
         top: 0;
+        top: 10px;
+        left: 0;
+        z-index: 999;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;
         display: flex;
-        left: 0;
-        width: 100%;
-        top: 10px;
         padding: 0 5px;
+        width: 100%;
     }
 
     .menu-r {
+        position: absolute;
+        bottom: .46rem;
+        z-index: 999;
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
         display: -ms-flexbox;
         display: flex;
-        position: absolute;
         padding: 0 5px;
-        bottom: .46rem;
         width: 100%;
-        z-index: 999;
     }
 
     .menu a {
-        -webkit-background-size: 200% 600%;
-        background-size: 200% 600%;
         -webkit-box-flex: 1;
         -webkit-flex: 1;
         -moz-box-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        height: .7rem;
         margin: 0 5px;
+        height: .7rem;
+        -webkit-background-size: 200% 600%;
+        background-size: 200% 600%;
     }
 
     .menu a:after {
@@ -1139,17 +983,17 @@ a,
     }
 
     .follow {
+        padding-top: 25px;
+        height: 8.6rem;
         background-image: url('../images/second-follow-bg-m.png');
         -webkit-background-size: 95% 100%;
         background-size: 95% 100%;
-        height: 8.6rem;
-        padding-top: 25px;
     }
 
     .news .box,
     .follow .box {
-        width: auto;
         margin: 0 30px;
+        width: auto;
     }
 
     .news li .flft,
@@ -1161,8 +1005,8 @@ a,
     .news .time,
     .news .type {
         display: inline-block;
-        width: auto;
         margin-right: 5px;
+        width: auto;
     }
 
     .news .type {
@@ -1186,17 +1030,17 @@ a,
 
     .more {
         padding: 5px 20px 5px 10px;
-        font-size: .35rem;
         background-position: 90% center;
         -webkit-background-size: 10px auto;
         background-size: 10px auto;
+        font-size: .35rem;
     }
 
     .game {
+        margin: 10px 0;
+        height: 8.5rem;
         -webkit-background-size: 120% 100%;
         background-size: 120% 100%;
-        height: 8.5rem;
-        margin: 10px 0;
     }
 
     .game>.container {
@@ -1231,8 +1075,8 @@ a,
     }
 
     .second {
-        height: auto;
         padding-bottom: 1rem;
+        height: auto;
     }
 
     .third {
@@ -1248,16 +1092,16 @@ a,
 
     .third-bg,
     .third .box {
-        -webkit-background-size: 100% 100%;
-        background-size: 100% 100%;
         width: 100%;
         height: 100%;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
     }
 
     .third-bg {
-        background-image: url('../images/third-bg-m.jpg');
-        height: 7.56rem;
         overflow: hidden;
+        height: 7.56rem;
+        background-image: url('../images/third-bg-m.jpg');
     }
 
     .third-role {
@@ -1265,9 +1109,9 @@ a,
     }
 
     .third-role-tab span {
+        margin: 0 3px;
         width: 44px;
         height: 44px;
-        margin: 0 3px;
     }
 
     .third-role-tab span.cur {
@@ -1276,12 +1120,12 @@ a,
     }
 
     .third-role-tab-box {
+        bottom: -10px;
+        left: 0;
         -webkit-transform: scale(.45);
         -moz-transform: scale(.45);
         -ms-transform: scale(.45);
         transform: scale(.45);
-        left: 0;
-        bottom: -10px;
         -webkit-transform-origin: bottom;
         -moz-transform-origin: bottom;
         -ms-transform-origin: bottom;
@@ -1294,10 +1138,10 @@ a,
     }
 
     .third-race span {
-        -webkit-background-size: 100% 600%;
-        background-size: 100% 600%;
         width: 30px;
         height: 30px;
+        -webkit-background-size: 100% 600%;
+        background-size: 100% 600%;
         -webkit-transform: translate(-50%,-50%);
            -moz-transform: translate(-50%,-50%);
             -ms-transform: translate(-50%,-50%);
@@ -1330,8 +1174,8 @@ a,
     }
 
     .third .third-race .rape-6 {
-        left: 8.5rem;
         top: 1.8rem;
+        left: 8.5rem;
     }
 
     .third-race .cur {
@@ -1340,16 +1184,16 @@ a,
     }
 
     .third-border {
+        height: .7rem;
         -webkit-background-size: 100% 100%;
         background-size: 100%;
-        height: .7rem;
     }
 
     /*首页 end*/
 
     .footer {
-        font-size: .35rem;
         padding: 0.46875rem;
+        font-size: .35rem;
     }
 
     .footer img {
@@ -1361,7 +1205,7 @@ a,
     }
 
     .footer .cop {
-        margin: 0;
         display: block;
+        margin: 0;
     }
 }
