@@ -11,36 +11,126 @@
 </head>
 
 <body>
-<div class="welcome">
-    <div class="cloud"></div>
-    <div class="door-left"></div>
-    <div class="door-right"></div>
-    <div class="nprogress">
-        <div class="nprogress-left"><span class="nprogress-bar"></span></div>
-        <div class="nprogress-center"><span class="num">0</span>%</div>
-        <div class="nprogress-right"><span class="nprogress-bar"></span></div>
-    </div>
-</div>
+    <!-- <div class="door">
+        <div class="cloud"></div>
+        <div class="door-left"></div>
+        <div class="door-right"></div>
+        <div class="nprogress">
+            <div class="nprogress-left"><span class="nprogress-bar"></span></div>
+            <div class="nprogress-center"><span class="num">0</span>%</div>
+            <div class="nprogress-right"><span class="nprogress-bar"></span></div>
+        </div>
+    </div> -->
 
-<script src="js/jquery.min.js"></script>
-<script>
-    $(function(){
-        // 开门动画
-        $('.nprogress-left .nprogress-bar').animate({width:'100%'},1500,function () {
-            $('.nprogress-right .nprogress-bar').animate({width:'100%'},1500)
-        });
-        var num = 0;
-        var nprogressNum = setInterval(function(){
-             $('.nprogress-center .num').html(num++);
-             if(num > 100){
-                clearInterval(nprogressNum);
-                $('.door-left,.door-right').addClass('active');
-                $('.welcome').fadeOut(1000);
-             }
-        }, 30);
-    })
-    
-</script>
+    <!-- <div class="welcome" style="display: none;"> -->
+    <div class="welcome">
+        <div class="flower">
+            <!-- 飘花 -->
+            <div id="snowflake"></div>
+        </div>
+        <div class="bgm">
+            <iframe style="display: none;" src="./media/none.mp3" frameborder="0"></iframe>
+            <audio loop autoplay="autoplay" src="./media/bgm.mp3" id="bgm"></audio>
+        </div>
+        <div class="logo"><img src="images/logo.png" alt=""></div>
+        <div class="enter">
+            <div class="enter-breathe ani"></div>
+            <div class="enter-rotate ani"></div>
+            <a href="index.html" class="enter-text"></a>
+        </div>
+        <div class="hero">
+            <div class="hero-datiangou canvas" id="hero-datiangou"></div>
+            <div class="hero-jiatengduanzang canvas" id="hero-jiatengduanzang"></div>
+            <div class="hero-qingxingdeng canvas" id="hero-qingxingdeng"></div>
+            <div class="hero-yidazhengzong canvas" id="hero-yidazhengzong"></div>
+            <div class="hero-yuedu canvas" id="hero-yuedu"></div>
+            <div class="hero-zhitianxinchang canvas" id="hero-zhitianxinchang"></div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.transit.js"></script>
+    <script src="js/vFramePlayer.min.js"></script>
+    <script src="js/flower.js"></script>
+    <script>
+        $(function () {
+                var $audio = $('#bgm')[0];
+                var num = 0;
+                snowflake(); //执行雪花飘落函数
+                // 开门动画
+                $('.nprogress-left .nprogress-bar').animate({
+                    width: '100%'
+                }, 1000, function () {
+                    $('.nprogress-right .nprogress-bar').animate({
+                        width: '100%'
+                    }, 1000)
+                });
+                var nprogressNum = setInterval(function () {
+                    $('.nprogress-center .num').html(num++);
+                    if (num > 100) {
+                        clearInterval(nprogressNum);
+                        $('.door-left,.door-right,.bgm').addClass('active');
+                        $('.door').fadeOut(1000);
+                        $('.welcome').fadeIn(1000);
+                        $audio.play();
+                    }
+                }, 30);
+                $('.enter-text').on('click', function (e) {
+                    // 进入官网
+                    e.preventDefault();
+                    $('.enter').addClass('cur');
+                    setTimeout(function () {
+                        location.href = $(this).arrt('href');
+                    }, 3000);
+                });
+                $('.bgm').on('click', function () {
+                    // 背景音乐播放
+                    var $this = $(this);
+                    if ($this.hasClass('active')) { //判读是否播放
+                        $audio.pause();
+                        $(this).removeClass('active');
+                    } else {
+                        $audio.play(); //没有就播放
+                        $(this).addClass('active');
+                    }
+                });
+
+            })
+            // 式神动画
+            !function () {
+                var canvasObj ={};
+                var imgArr = {
+                    'datiangou': [],
+                    'jiatengduanzang':[],
+                    'qingxingdeng':[],
+                    'yidazhengzong':[],
+                    'yuedu':[],
+                    'zhitianxinchang':[],
+                };
+                for (key in imgArr) {
+                    var $length = 0;
+                    if (key === 'jiatengduanzang'){
+                       $length = 96;
+                    }else {
+                       $length = 31;
+                    }
+                    for (let i = 0; i < $length; i++) {
+                        imgArr[key].push('./images/hero/'+key+'/idle/' + addPreZero(i) + '.png');
+                    }
+                    canvasObj[key] = new vFramePlayer({
+                        dom: $('#hero-'+key)[0],
+                        imgArr: imgArr[key],
+                        useCanvas: true,
+                        fps: 15,
+                        loop: -1
+                    });
+                    console.log(1);
+                    canvasObj[key].play();
+                }
+                function addPreZero(num) {
+                    return ('00000' + num).slice(-5);
+                }
+            }();
+    </script>
 </body>
 
 </html>
