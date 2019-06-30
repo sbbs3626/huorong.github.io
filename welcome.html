@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <!-- <div class="door">
+    <div class="door">
         <div class="cloud"></div>
         <div class="door-left"></div>
         <div class="door-right"></div>
@@ -20,10 +20,11 @@
             <div class="nprogress-center"><span class="num">0</span>%</div>
             <div class="nprogress-right"><span class="nprogress-bar"></span></div>
         </div>
-    </div> -->
+    </div>
 
-    <!-- <div class="welcome" style="display: none;"> -->
-    <div class="welcome">
+    <div class="welcome" style="display: none;">
+
+        <div class="niaoju"></div>
         <div class="flower">
             <!-- 飘花 -->
             <div id="snowflake"></div>
@@ -51,6 +52,7 @@
     <script src="js/jquery.transit.js"></script>
     <script src="js/vFramePlayer.min.js"></script>
     <script src="js/flower.js"></script>
+
     <script>
         $(function () {
                 var $audio = $('#bgm')[0];
@@ -79,8 +81,8 @@
                     e.preventDefault();
                     $('.enter').addClass('cur');
                     setTimeout(function () {
-                        location.href = $(this).arrt('href');
-                    }, 3000);
+                        location.href = $('.enter-text').attr('href');
+                    }, 2000);
                 });
                 $('.bgm').on('click', function () {
                     // 背景音乐播放
@@ -96,38 +98,83 @@
 
             })
             // 式神动画
-            !function () {
-                var canvasObj ={};
+            ! function () {
+                var canvasObj = {};
                 var imgArr = {
                     'datiangou': [],
-                    'jiatengduanzang':[],
-                    'qingxingdeng':[],
-                    'yidazhengzong':[],
-                    'yuedu':[],
-                    'zhitianxinchang':[],
+                    'jiatengduanzang': [],
+                    'qingxingdeng': [],
+                    'yidazhengzong': [],
+                    'yuedu': [],
+                    'zhitianxinchang': [],
                 };
                 for (key in imgArr) {
                     var $length = 0;
-                    if (key === 'jiatengduanzang'){
-                       $length = 96;
-                    }else {
-                       $length = 31;
+                    if (key === 'jiatengduanzang') {
+                        $length = 96;
+                    } else {
+                        $length = 31;
                     }
                     for (let i = 0; i < $length; i++) {
-                        imgArr[key].push('./images/hero/'+key+'/idle/' + addPreZero(i) + '.png');
+                        imgArr[key].push('./images/hero/' + key + '/idle/' + addPreZero(i) + '.png');
                     }
                     canvasObj[key] = new vFramePlayer({
-                        dom: $('#hero-'+key)[0],
+                        dom: $('#hero-' + key)[0],
                         imgArr: imgArr[key],
                         useCanvas: true,
                         fps: 15,
                         loop: -1
                     });
-                    console.log(1);
                     canvasObj[key].play();
                 }
+                // tips 
+                var tipsText = [{
+                        key: 'datiangou',
+                        text: '來講故事吧！百物語之首是從你開始嗎？'
+                    },
+                    {
+                        key: 'jiatengduanzang',
+                        text: '在膽小鬼的眼中，即使是小兵也因恐懼而視為大將。'
+                    },
+                    {
+                        key: 'qingxingdeng',
+                        text: '來講故事吧！百物語之首是從你開始嗎？'
+                    },
+                    {
+                        key: 'yidazhengzong',
+                        text: '在膽小鬼的眼中，即使是小兵也因恐懼而視為大將。'
+                    },
+                    {
+                        key: 'yuedu',
+                        text: '給你個神秘禮物喔！（禮品碼序號“WERTYUIOPQASDFGH”'
+                    },
+                    {
+                        key: 'zhitianxinchang',
+                        text: '在膽小鬼的眼中，即使是小兵也因恐懼而視為大將。'
+                    }
+                ];
+                var tipsIndex = 0;
+                setInterval(function () {
+                    var $class = $('.hero-' + tipsText[tipsIndex].key);
+                    myTips($class,tipsText[tipsIndex].text)
+                    tipsIndex++;
+                    if (tipsIndex >= tipsText.length) {
+                        tipsIndex = 0;
+                    }
+                }, 3000);
+
                 function addPreZero(num) {
                     return ('00000' + num).slice(-5);
+                }
+
+                function myTips($dom, $text) {
+                    var x = $dom.offset().left;
+                    var y = $dom.offset().top;
+                    var $html = '<div style="top:'+y+'px;left:'+x+'px" class="my-tips">'+$text+'</div>';
+                    $('body').append($html);
+                    setTimeout(function() {
+                        $('.my-tips').eq(0).remove();
+                    }, 3000);
                 }
             }();
     </script>
