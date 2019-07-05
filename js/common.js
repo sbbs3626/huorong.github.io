@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:31:24 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-25 14:37:00
+ * @Last Modified time: 2019-07-05 16:32:32
  */
 /*REM begin*/
 // 128 px（ 盒子） / 640 px(设计稿) * 10 == 2 rem;
@@ -91,6 +91,7 @@ var ST = {
 
 /*导航悬停*/
 $(function () {
+    // 导航悬停
     var $menu = $("#menuBox");
     if ($menu.length>0) {
         var menuTop = $menu.offset().top + 200;
@@ -99,8 +100,10 @@ $(function () {
                 var windowTop = $(window).scrollTop();
                 if (parseInt(windowTop) > parseInt(menuTop)) {
                     $menu.addClass("fixed");
+                    $menu.find('.slide-nav').slideDown();
                 } else {
                     $menu.removeClass("fixed");
+                    $menu.find('.slide-nav').slideUp();
                 }
             });
         }

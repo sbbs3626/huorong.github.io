@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-25 11:43:50
+ * @Last Modified time: 2019-07-05 16:33:08
  */
 
 
@@ -315,6 +315,46 @@
     top: 20px;
     right: 0;
     z-index: 1;
+    width: 350px;
+}
+.slide-nav {
+    position: absolute;
+    top: 330px;
+    right: 30px;
+    display: none;
+}
+.slide-nav a {
+    display: block;
+    margin-bottom: -5px;
+    width: 75px;
+    height: 94px;
+    background: url('../images/slide-nav-bg.png') no-repeat;
+    -webkit-background-size: 200% auto;
+            background-size: 200% auto;
+    color: #38221c;
+       text-align: center;
+       text-shadow: 1px 1px 0 rgba(255, 255, 255, .5);
+       font-weight: bold;
+       font-size: 16px;
+       line-height: 100px;
+}
+.slide-nav a:hover {
+    background-position-x: right;
+}
+.slide-nav .slide-nav-5 {
+    position: relative;
+    line-height: 120px;
+}
+.slide-nav .slide-nav-5::before {
+        position: absolute;
+        top: 38px;
+        left: 40%;
+        width: 14px;
+        height: 10px;
+        background: url('../images/slide-nav-top.png') no-repeat;
+        -webkit-background-size: 100% 100%;
+                background-size: 100% 100%;
+        content: ' ';
 }
 
 /*导航 end*/
@@ -580,6 +620,7 @@
 
 .third-bg {
     position: relative;
+    overflow-x: hidden;
     height: 810px;
     background: url('../images/third-bg.jpg') no-repeat center center;
 }
@@ -799,15 +840,8 @@
 /*footer*/
 
 @media (max-width: 1440px) {
-    .menu-cloud {
-        -webkit-transform: scale(.6);
-        -moz-transform: scale(.6);
-        -ms-transform: scale(.6);
-        transform: scale(.6);
-        -webkit-transform-origin: 100%;
-        -moz-transform-origin: 100%;
-        -ms-transform-origin: 100%;
-        transform-origin: 100%;
+    .slide-nav {
+        top: 280px;
     }
 }
 

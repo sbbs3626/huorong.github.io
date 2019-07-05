@@ -2,13 +2,15 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 16:16:16 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-06-24 13:53:15
+ * @Last Modified time: 2019-07-05 14:05:07
  */
 $(function () {
     $('.first-parallax').parallax({
         // 人物动画
         frictionX: 0.2,
-        frictionY: 0.8
+        frictionY: 0.4,
+        scalarX: 3.0,
+        scalarY: 3.0,
     });
     
     var bannerSwiper = new Swiper('.banner .swiper-container', {
