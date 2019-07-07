@@ -18,26 +18,24 @@
         </div>
     </div>
     <div class="first">
-        <div class="first-parallax">
-            <div data-depth=".2" class="layer first-cloud hidden-xs"><img src="images/cloud-1.png" alt=""></div>
-            <div class="logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+        <div class="bgm active s5">
+            <iframe style="display: none;" src="./media/none.mp3" frameborder="0"></iframe>
+            <audio loop autoplay="autoplay" src="./media/bgm.mp3" id="bgm"></audio>
+        </div>
+        <div class="first-parallax s1">
+            <div class="first-cloud hidden-xs"><img src="images/cloud-1.png" alt=""></div>
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt=""></a>
+            </div>
             <div class="first-people hidden-xs">
-                <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-8"
-                        src="images/first-people-8.png"></div>
-                <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-7"
-                        src="images/first-people-7.png"></div>
-                <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-6"
-                        src="images/first-people-6.png"></div>
-                <div class="layer" data-depth-x="0.70" data-depth-y="-0.70"><img class="first-people-5"
-                        src="images/first-people-5.png"></div>
-                <div class="layer" data-depth-x="0.40" data-depth-y="-0.40"><img class="first-people-4"
-                        src="images/first-people-4.png"></div>
-                <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-3"
-                        src="images/first-people-3.png"></div>
-                <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-2"
-                        src="images/first-people-2.png"></div>
-                <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-1"
-                        src="images/first-people-1.png"></div>
+                <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-8" src="images/first-people-8.png"></div>
+                <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-7" src="images/first-people-7.png"></div>
+                <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-6" src="images/first-people-6.png"></div>
+                <div class="layer" data-depth-x="0.70" data-depth-y="-0.70"><img class="first-people-5" src="images/first-people-5.png"></div>
+                <div class="layer" data-depth-x="0.40" data-depth-y="-0.40"><img class="first-people-4" src="images/first-people-4.png"></div>
+                <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-3" src="images/first-people-3.png"></div>
+                <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-2" src="images/first-people-2.png"></div>
+                <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-1" src="images/first-people-1.png"></div>
             </div>
         </div>
         <div class="first-slogan">
@@ -66,14 +64,15 @@
             </div>
             <div class="menu-cloud hidden-xs">
                 <img src="images/cloud-2.png" alt="">
+                <div class="slide-nav ani">
+                    <a href="#s1" class="slide-nav-1" id="s1">首頁 </a>
+                    <a href="#s2" class="slide-nav-2" id="s2">新聞資訊</a>
+                    <a href="#s3" class="slide-nav-3" id="s3">遊戲介紹</a>
+                    <a href="#s4" class="slide-nav-4" id="s4">式神介紹 </a>
+                    <a href="#s5" class="slide-nav-5" id="s5">TOP </a>
+                </div>
             </div>
-            <div class="slide-nav">
-                <a href="index.html" class="slide-nav-1">首頁 </a>
-                <a href="news.html" class="slide-nav-2">新聞資訊</a>
-                <a href="#game" class="slide-nav-3">遊戲介紹</a>
-                <a href="#third" class="slide-nav-4">式神介紹 </a>
-                <a href="#" class="slide-nav-5">TOP </a>
-            </div>
+
         </div>
     </div>
 
@@ -94,7 +93,7 @@
                 <div class="banner-next"></div>
             </div>
             <div class="contbox clearfix">
-                <div class="news">
+                <div class="news ani s2" id="news">
                     <div class="box">
                         <div class="title text-right">
                             <a class="more" href="news.html">more+</a>
@@ -158,7 +157,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="follow" id="follow">
+                <div class="follow ani" id="follow">
                     <div class="box">
                         <div class="facebook-box">
                             <img src="images/img-2.jpg" alt="">
@@ -167,7 +166,7 @@
                 </div>
             </div>
         </div>
-        <div class="game" id="game">
+        <div class="game s3" id="game">
             <div class="game-cloud hidden-xs">
                 <img src="images/cloud-3.png" alt="">
             </div>
@@ -188,7 +187,7 @@
         </div>
 
     </div>
-    <div class="third" id="third">
+    <div class="third s4" id="third">
         <div class="third-title"></div>
         <div class="third-bg">
             <div class="box">
@@ -208,15 +207,15 @@
             <div class="third-border"></div>
         </div>
     </div>
-    
+
     <div class="footer">
         <div class="container">
             <img src="images/copyright.png" alt="">
             <p>
-                <a href="#">公司介紹</a>
-                <a href="#">聯繫我們</a>
-                <a href="#">服務條款</a>
-                <a href="#">隱私政策</a>
+                <span>公司介紹</span>
+                <span>聯繫我們</span>
+                <span>服務條款</span>
+                <span>隱私政策</span>
                 <span class="cop"> Copyright 2018 Game Force Online Co.Ltd</span>
             </p>
         </div>
@@ -224,9 +223,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/swiper.jquery.min.js"></script>
     <script src="js/jquery.parallax.js"></script>
+    <script src="js/jquery.smint.js"></script>
     <script src="js/data.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/index.js"> </script>
+    <script src="js/index.js">
+    </script>
 
 </body>
 

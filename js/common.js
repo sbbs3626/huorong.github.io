@@ -6,7 +6,7 @@
  */
 /*REM begin*/
 // 128 px（ 盒子） / 640 px(设计稿) * 10 == 2 rem;
-! function (e) {
+! function(e) {
     function t() {
         var t = n.clientWidth,
             r = "}";
@@ -19,10 +19,10 @@
     var n = document.documentElement,
         i = document.createElement("style");
     n.firstElementChild.appendChild(i),
-        e.addEventListener("resize", function () {
+        e.addEventListener("resize", function() {
             t()
         }, !1),
-        e.addEventListener("pageshow", function (e) {
+        e.addEventListener("pageshow", function(e) {
             e.persisted && t()
         }, !1),
         t()
@@ -30,13 +30,13 @@
 
 /*REM end*/
 
-$.fn.zqTab = function (option, callback) {
+$.fn.zqTab = function(option, callback) {
     // tab 选项卡
     var index; //索引值
     var $this = $(this);
     $this.eq(0).addClass(option.activeName); //第一个导航高亮显示 
     $(option.container).hide().eq(0).show(); //第一个内容显示
-    $this.on(option.eventName, function () {
+    $this.on(option.eventName, function() {
         _index = $this.index(this); //获取当前点击的索引值
         $(this).addClass(option.activeName).siblings().removeClass(option.activeName); //当前点击高亮显示
         $(option.container).eq(_index).show().siblings().hide(); //通过索引值让对应的选项内容区显示
@@ -45,11 +45,11 @@ $.fn.zqTab = function (option, callback) {
 
 }
 var ST = {
-    _index:0,
-    isMobile: function () {
+    _index: 0,
+    isMobile: function() {
         return /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
     },
-    atCopy: function ($value) {
+    atCopy: function($value) {
         // 复制
         const input = document.createElement('input');
         input.setAttribute('readonly', 'readonly');
@@ -65,9 +65,9 @@ var ST = {
         }
         document.body.removeChild(input);
     },
-    returnTab: function (_index) {
+    returnTab: function(_index) {
         //  html
-        ST._index=_index;
+        ST._index = _index;
         var tabHtml = '';
         for (let i = 0; i < roleData[_index].length; i++) {
             tabHtml += '<span class="third-role-tab-child">' +
@@ -78,7 +78,7 @@ var ST = {
         $('.third-race span').eq(_index).addClass('cur');
         $('.third-role-tab span').eq(0).addClass('cur');
     },
-    returnHtml: function (i) {
+    returnHtml: function(i) {
         var _index = ST._index;
         var boxHtml = '<h3>' + roleData[_index][i].name + '</h3>' +
             '<div class="text">' + roleData[_index][i].description + '</div>' +
@@ -90,32 +90,77 @@ var ST = {
 }
 
 /*导航悬停*/
-$(function () {
+$(function() {
     // 导航悬停
-    var $menu = $("#menuBox");
-    if ($menu.length>0) {
-        var menuTop = $menu.offset().top + 200;
-        if (!ST.isMobile()) {
-            $(window).on("scroll", function () {
-                var windowTop = $(window).scrollTop();
-                if (parseInt(windowTop) > parseInt(menuTop)) {
-                    $menu.addClass("fixed");
-                    $menu.find('.slide-nav').slideDown();
-                } else {
-                    $menu.removeClass("fixed");
-                    $menu.find('.slide-nav').slideUp();
+    var $menu = $(".menu-cloud");
+    var optionLocs = new Array(),
+        lastScrollTop = 0,
+        smint = $('.smint'),
+        smintA = $('.smint a'),
+        myOffset = smint.height();
+    $('.slide-nav a').each(function(index, e) {
+        var id = $(this).attr('href').split('#')[1];
+        optionLocs.push(Array(
+            $("." + id).offset().top,
+            $("." + id).height() + $("." + id).offset().top, id));
+        var stickyMenu = function(direction) {
+            var scrollTop = $(window).scrollTop() + 100;
+            if (optionLocs[index][0] <= scrollTop && scrollTop <= optionLocs[index][1]) {
+                if (direction == "up") {
+                    $("#" + id).addClass("cur");
+                    $("#" + optionLocs[index + 1][2]).removeClass("cur");
+                } else if (index > 0) {
+                    $("#" + id).addClass("cur");
+                    $("#" + optionLocs[index - 1][2]).removeClass("cur");
+                } else if (direction == undefined) {
+                    $("#" + id).addClass("cur");
                 }
+                $.each(optionLocs, function(i) {
+                    if (id != optionLocs[i][2]) {
+
+                        $("#" + optionLocs[i][2]).removeClass("cur");
+                    }
+                });
+            }
+        }
+        if ($menu.length > 0) {
+            var menuTop = $menu.offset().top + 200;
+            if (!ST.isMobile()) {
+                $(window).on("scroll", function() {
+                    var windowTop = $(window).scrollTop();
+                    if (parseInt(windowTop) > parseInt(menuTop)) {
+                        $menu.addClass("fixed");
+                        direction = "down";
+                    } else {
+                        $menu.removeClass("fixed");
+                        direction = "up";
+                    }
+                    stickyMenu(direction);
+                });
+            }
+
+            $menu.on('click', 'a', function() {
+                $(this).addClass('cur').siblings().removeClass('cur');
             });
         }
-        $menu.on('click', 'a', function () {
-            $(this).addClass('cur').siblings().removeClass('cur');
-        });
-    }
-    $('.first-play,.video-close').on('click', function () {
+    })
+
+    $('.slide-nav a').on('click', function(e) {
+        e.preventDefault();
+        var hash = $(this).attr('href').split('#')[1];
+        var goTo = $('.' + hash).offset().top;
+        $("html, body").stop().animate({ scrollTop: goTo }, 500);
+        if ($(this).hasClass("extLink")) {
+            return false;
+        }
+
+    });
+
+    $('.first-play,.video-close').on('click', function() {
         // 视频播放
         $('.video-box').fadeToggle();
     });
-    $('.first-surprise').on('click', function () {
+    $('.first-surprise').on('click', function() {
         // 点击弹出惊喜
         var code = 'cdefghiklmn'; // 惊喜码
         var codeHtml = '<div class="fixed-bg"><div class="mylayer-content text-center">恭喜悠獲得驚喜<br>遊戲序號: ' +
@@ -123,11 +168,11 @@ $(function () {
             '<p class="mtop15"><button class="mylayer-btn">複製</button></p><div class="mylayer-close"></div></div>' +
             '</div>';
         $('body').append(codeHtml);
-        $('.mylayer-btn').on('click', function () {
+        $('.mylayer-btn').on('click', function() {
             ST.atCopy(code);
             $('.fixed-bg').remove();
         });
-        $('.mylayer-close').on('click', function () {
+        $('.mylayer-close').on('click', function() {
             $('.fixed-bg').remove();
         });
     });
