@@ -40,19 +40,7 @@ $(function() {
             bannerSwiper.slideNext();
         }
     });
-    // 新闻动画
-    var $contbox = $(".contbox");
-    if ($contbox.length > 0) {
-        var $contboxTop = $contbox.offset().top - 500;
-        if (!ST.isMobile()) {
-            $(window).on("scroll", function() {
-                var windowTop = $(window).scrollTop();
-                if (parseInt(windowTop) > parseInt($contboxTop)) {
-                    $('.news,.follow').addClass("cur");
-                }
-            });
-        }
-    }
+
     if (!ST.isMobile()) {
         var gameSwiper = new Swiper('.game .swiper-container', {
             //游戏
@@ -118,21 +106,22 @@ $(function() {
         ST.returnHtml(i);
     });
     var dummyStyle = document.createElement("div").style,
-        vendor = function () {
+        vendor = function() {
             for (var n, e = "t,webkitT,MozT,msT,OT".split(","), t = 0, r = e.length; r > t; t++)
                 if (n = e[t] + "ransform", n in dummyStyle) return e[t].substr(0, e[t].length - 1);
             return !1
         }(),
         _css3 = vendor ? "-" + vendor.toLowerCase() + "-" : "",
-        translate3d = function (n, e, t) {
+        translate3d = function(n, e, t) {
             return "translate(" + n + "," + e + "," + t + ")"
         };
     Object.defineProperty(HTMLElement.prototype, "translate3d", {
-        value: function (n, e, t) {
+        value: function(n, e, t) {
             this.style[_css3 + "transform"] = "translate3d(" + n + "," + e + "," + t + ")"
         }
     });
-    if(!ST.isMobile()){
+    if (!ST.isMobile()) {
+
         $("#wrapper").mCustomScrollbar({
             theme: "dark-1",
             scrollbarPosition: 'inside',
@@ -144,27 +133,56 @@ $(function() {
                 normalizeDelta: false,
             },
             callbacks: {
-                whileScrolling: function () {
+                whileScrolling: function() {
                     var Top = Math.abs(this.mcs.top);
                     console.log(Top);
-                    
+
                     $('.first')[0].translate3d(0, -(Top * .3) + 'px', 0);
                     $('.first-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
                     $('.menu-cloud')[0].translate3d(Top * .5 + 'px', 0, 0);
-                    $('.game-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
                     $('.menu-box')[0].translate3d(0, -(Top * 1) + 'px', 0);
-                    $('.second')[0].translate3d(0, -(Top * 1) + 'px', 0)
-                    $('.third')[0].translate3d(0, -(Top * .2) + 'px', 0);
-                    if(Top > 405){
-                        $('.menu-box')[0].translate3d(0, -(405 + Top * .1) + 'px', 0);
-                        $('.second')[0].translate3d(0, -(Top * 1.5) + 'px', 0);
+                    $('.second')[0].translate3d(0, -(Top * 1) + 'px', 0);
+
+                    if (Top > 460) {
+                        $('.menu-box')[0].translate3d(0, (Top - window.innerHeight + 96 - Top * 0.2) + 'px', 0);
                     }
-                    // Top > 1500 && Top < 2600 ? $('.second')[0].translate3d(0, -(1500 - Top * .5 + 1500) + 'px', 0) : (Top > 400 ? $('.second2')[0].translate3d(0, -(Top * 1.5) + 'px', 0) : $('.second')[0].translate3d(0, 0, 0));
-                    Top > 2070 && Top < 2800 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105) + 'px', 0) : $('.third')[0].translate3d(0, -(Top * 1.5) + 'px', 0);
-                    Top > 2700 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105 + Top - 2700) + 'px', 0) : (Top > 2070 && Top < 2800 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105) + 'px', 0) : $('.third')[0].translate3d(0, -(Top * 1.5) + 'px', 0))
+                    // 新闻动画
+                    var $contbox = $(".contbox");
+                    var $contboxTop = $contbox.offset().top / 2;
+                    if (Top > $contboxTop) {
+                        $('.news,.follow').addClass("cur");
+                        $(".slide-nav").addClass("fixed");
+                        $('.game-cloud')[0].translate3d(-(Top * .2) + 'px', 0, 0);
+                    } else {
+                        $(".slide-nav").removeClass("fixed");
+                    }
+
+                    if (Top > 900) {
+                        $('.third')[0].translate3d(0, -(Top * 1.2 - 180) + 'px', 0);
+                        $('.third-border')[0].translate3d(0, -(Top * 0.05) + 'px', 0);
+                        $('.footer')[0].translate3d(0, -(Top * 1.2 - 180) + 'px', 0);
+                    }
+                    if (Top >= 0 && Top < 676) {
+                        $('.slide-nav .slide-nav-1').addClass('cur').siblings().removeClass('cur');
+                    }
+                    if (Top >= 676 && Top < 1000) {
+                        $('.slide-nav .slide-nav-2').addClass('cur').siblings().removeClass('cur');
+                    }
+                    if (Top >= 1000 && Top < 1350) {
+                        $('.slide-nav .slide-nav-3').addClass('cur').siblings().removeClass('cur');
+                    }
+                    if (Top >= 1350) {
+                        $('.slide-nav .slide-nav-4').addClass('cur').siblings().removeClass('cur');
+                    }
                 }
             }
         });
+        $('.slide-nav > a').click(function() {
+            var Id = $(this).attr('_id');
+            $("#wrapper").mCustomScrollbar("scrollTo", Id, {
+                scrollEasing: "easeOut"
+            });
+        })
     }
 
 });

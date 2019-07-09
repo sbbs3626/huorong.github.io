@@ -11,24 +11,36 @@
     width: 100%;
     height: 100%;
 }
+
+.wrapper .inner {
+    height: 2445px;
+}
+
 .mCSB_inside>.mCSB_container {
     margin-right: 0;
 }
+
 .mCSB_scrollTools {
     z-index: 99;
 }
+
 .first {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 1003px;
     background: url('../images/first-bg.jpg') no-repeat center top;
 }
+
 .first-out {
-     overflow: hidden;
-     margin: 0 auto;
-     margin-top: 59px;
-     width: 1326px;
-     height: 776px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 59px;
+    width: 1326px;
+    height: 776px;
 }
+
 .first-out img {
     -webkit-transform: scale(1.05);
     -moz-transform: scale(1.05);
@@ -55,11 +67,11 @@
     left: 50%;
     z-index: 4;
     text-align: center;
-    -webkit-transform:translateX(-50%);
-    -moz-transform:translateX(-50%);
-    -ms-transform:translateX(-50%);
-    -o-transform:translateX(-50%);
-    transform:translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 
@@ -264,10 +276,11 @@
 /*导航*/
 
 .menu-box {
-    position: relative;
-    z-index: 2;
-    margin-top: -193px;
+    position: absolute;
+    top: 860px;
+    left: 0;
     width: 100%;
+    z-index: 2;
     height: 193px;
     background: url('../images/menu-bg.png') no-repeat center top;
 }
@@ -339,21 +352,26 @@
     z-index: 1;
 }
 
-.menu-cloud.fixed {
-    position: fixed;
-    top: -71px;
-    z-index: 999;
-}
-
 .slide-nav {
-    position: absolute;
-    top: 330px;
+    position: fixed;
+    top: 50%;
+    margin-top: -300px;
     right: 30px;
-    z-index: -1;
+    z-index: 9;
     overflow: hidden;
     height: 0;
     opacity: 0;
     transform: translateY(-100%);
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+.slide-nav.fixed {
+    height: 610px;
+    opacity: 1;
 }
 
 .slide-nav a {
@@ -400,16 +418,6 @@
     content: ' ';
 }
 
-.menu-cloud.fixed .slide-nav {
-    height: auto;
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-    -moz-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    -o-transform: translateY(0%);
-    transform: translateY(0%);
-}
-
 
 /*导航 end*/
 
@@ -417,7 +425,10 @@
 /*banner*/
 
 .second {
-    position: relative;
+    position: absolute;
+    top: 1053px;
+    left: 0;
+    width: 100%;
     height: 1893px;
     background: url('../images/second-bg.jpg') no-repeat center bottom;
 }
@@ -690,8 +701,11 @@
 /*式神介绍*/
 
 .third {
-    position: relative;
-    margin-top: -150px;
+    position: absolute;
+    top: 2750px;
+    left: 0;
+    width: 100%;
+    height: 1112px;
 }
 
 .third-title {
@@ -701,14 +715,14 @@
 
 .third-bg {
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
     height: 810px;
     background: url('../images/third-bg.jpg') no-repeat center center;
 }
 
 .third-border {
     position: absolute;
-    bottom: 0;
+    bottom: -80px;
     left: 0;
     width: 100%;
     height: 99px;
@@ -902,6 +916,10 @@
 /*footer*/
 
 .footer {
+    position: absolute;
+    width: 100%;
+    top: 3862px;
+    left: 0;
     padding: 50px 0;
     background: #000000;
     color: #fff;
@@ -925,11 +943,7 @@
 
 /*footer*/
 
-@media (max-width: 1440px) {
-    .slide-nav {
-        top: 280px;
-    }
-}
+@media (max-width: 1440px) {}
 
 @media (min-width:769px) {
     .visible-xs {
@@ -938,6 +952,14 @@
 }
 
 @media screen and (max-width:768px) {
+    .first,
+    .second,
+    .third,
+    .menu-box,
+    .footer {
+        position: relative;
+        top: initial;
+    }
     .container,
     .first-slogan {
         width: 100%;
@@ -1018,10 +1040,11 @@
     .menu-box .menu {
         position: static;
         background: none;
+        padding: 0;
+        height: auto;
     }
     .menu-l {
         position: absolute;
-        top: 0;
         top: 10px;
         left: 0;
         z-index: 999;
@@ -1035,7 +1058,7 @@
     }
     .menu-r {
         position: absolute;
-        bottom: .46rem;
+        top: 14.82rem;
         z-index: 999;
         display: -webkit-box;
         display: -webkit-flex;
@@ -1073,6 +1096,12 @@
     }
     .container .contbox {
         margin-top: 10px;
+    }
+    .wrapper .inner {
+        height: auto;
+    }
+    .bgm {
+        top: 1.8rem;
     }
     .news {
         height: 12rem;
@@ -1171,6 +1200,7 @@
     }
     .third {
         margin-top: -1rem;
+        height: auto;
     }
     .third-title {
         height: 2.2rem;

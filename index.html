@@ -11,13 +11,16 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        html,body {
-            position: relative;
-            margin: 0 auto;
-            min-width: 1280px;
-            max-width: 1920px;
-            width: 100%;
-            height: 100%;
+        @media (min-width:769px) {
+            html,
+            body {
+                position: relative;
+                margin: 0 auto;
+                min-width: 1280px;
+                max-width: 1920px;
+                width: 100%;
+                height: 100%;
+            }
         }
     </style>
 </head>
@@ -30,7 +33,7 @@
                     <div class="video-close"></div>
                 </div>
             </div>
-            <div class="first">
+            <div class="first" id="top">
                 <div class="bgm active s5">
                     <iframe style="display: none;" src="./media/none.mp3" frameborder="0"></iframe>
                     <audio loop autoplay="autoplay" src="./media/bgm.mp3" id="bgm"></audio>
@@ -46,22 +49,14 @@
                         <a href="index.html"><img src="images/logo.png" alt=""></a>
                     </div>
                     <div class="first-people hidden-xs">
-                        <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-8"
-                                src="images/first-people-8.png"></div>
-                        <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-7"
-                                src="images/first-people-7.png"></div>
-                        <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-6"
-                                src="images/first-people-6.png"></div>
-                        <div class="layer" data-depth-x="0.70" data-depth-y="-0.70"><img class="first-people-5"
-                                src="images/first-people-5.png"></div>
-                        <div class="layer" data-depth-x="0.40" data-depth-y="-0.40"><img class="first-people-4"
-                                src="images/first-people-4.png"></div>
-                        <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-3"
-                                src="images/first-people-3.png"></div>
-                        <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-2"
-                                src="images/first-people-2.png"></div>
-                        <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-1"
-                                src="images/first-people-1.png"></div>
+                        <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-8" src="images/first-people-8.png"></div>
+                        <div class="layer" data-depth-x="0.30" data-depth-y="-0.30"><img class="first-people-7" src="images/first-people-7.png"></div>
+                        <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-6" src="images/first-people-6.png"></div>
+                        <div class="layer" data-depth-x="0.70" data-depth-y="-0.70"><img class="first-people-5" src="images/first-people-5.png"></div>
+                        <div class="layer" data-depth-x="0.40" data-depth-y="-0.40"><img class="first-people-4" src="images/first-people-4.png"></div>
+                        <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-3" src="images/first-people-3.png"></div>
+                        <div class="layer" data-depth-x="0.80" data-depth-y="-0.80"><img class="first-people-2" src="images/first-people-2.png"></div>
+                        <div class="layer" data-depth-x="0.60" data-depth-y="-0.60"><img class="first-people-1" src="images/first-people-1.png"></div>
                     </div>
                 </div>
                 <div class="first-slogan">
@@ -75,7 +70,7 @@
                         <a href="javascript:void(0);"><img src="images/first-download-apk.png"></a>
                     </div>
                 </div>
-               
+
             </div>
             <div class="menu-box" id="menuBox">
                 <div class="menu container">
@@ -92,15 +87,15 @@
                 </div>
                 <div class="menu-cloud hidden-xs">
                     <img src="images/cloud-2.png" alt="">
-                    <div class="slide-nav ani">
-                        <a href="#s1" class="slide-nav-1" id="s1">首頁 </a>
-                        <a href="#s2" class="slide-nav-2" id="s2">新聞資訊</a>
-                        <a href="#s3" class="slide-nav-3" id="s3">遊戲介紹</a>
-                        <a href="#s4" class="slide-nav-4" id="s4">式神介紹 </a>
-                        <a href="#s5" class="slide-nav-5" id="s5">TOP </a>
-                    </div>
-                </div>
 
+                </div>
+            </div>
+            <div class="slide-nav ani  hidden-xs">
+                <a href="javascript:void(0);" class="slide-nav-1" _id="0">首頁 </a>
+                <a href="javascript:void(0);" class="slide-nav-2" _id="676">新聞資訊</a>
+                <a href="javascript:void(0);" class="slide-nav-3" _id="1000">遊戲介紹</a>
+                <a href="javascript:void(0);" class="slide-nav-4" _id="1350">式神介紹 </a>
+                <a href="javascript:void(0);" class="slide-nav-5" _id="0">TOP </a>
             </div>
             <div class="second">
                 <div class="second-border"></div>

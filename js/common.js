@@ -92,69 +92,6 @@ var ST = {
 /*导航悬停*/
 $(function() {
     // 导航悬停
-    var $menu = $(".menu-cloud");
-    var optionLocs = new Array(),
-        lastScrollTop = 0,
-        smint = $('.smint'),
-        smintA = $('.smint a'),
-        myOffset = smint.height();
-    $('.slide-nav a').each(function(index, e) {
-        var id = $(this).attr('href').split('#')[1];
-        optionLocs.push(Array(
-            $("." + id).offset().top,
-            $("." + id).height() + $("." + id).offset().top, id));
-        var stickyMenu = function(direction) {
-            var scrollTop = $(window).scrollTop() + 100;
-            if (optionLocs[index][0] <= scrollTop && scrollTop <= optionLocs[index][1]) {
-                if (direction == "up") {
-                    $("#" + id).addClass("cur");
-                    $("#" + optionLocs[index + 1][2]).removeClass("cur");
-                } else if (index > 0) {
-                    $("#" + id).addClass("cur");
-                    $("#" + optionLocs[index - 1][2]).removeClass("cur");
-                } else if (direction == undefined) {
-                    $("#" + id).addClass("cur");
-                }
-                $.each(optionLocs, function(i) {
-                    if (id != optionLocs[i][2]) {
-
-                        $("#" + optionLocs[i][2]).removeClass("cur");
-                    }
-                });
-            }
-        }
-        if ($menu.length > 0) {
-            var menuTop = $menu.offset().top + 200;
-            if (!ST.isMobile()) {
-                $(window).on("scroll", function() {
-                    var windowTop = $(window).scrollTop();
-                    if (parseInt(windowTop) > parseInt(menuTop)) {
-                        $menu.addClass("fixed");
-                        direction = "down";
-                    } else {
-                        $menu.removeClass("fixed");
-                        direction = "up";
-                    }
-                    stickyMenu(direction);
-                });
-            }
-
-            $menu.on('click', 'a', function() {
-                $(this).addClass('cur').siblings().removeClass('cur');
-            });
-        }
-    })
-
-    $('.slide-nav a').on('click', function(e) {
-        e.preventDefault();
-        var hash = $(this).attr('href').split('#')[1];
-        var goTo = $('.' + hash).offset().top;
-        $("html, body").stop().animate({ scrollTop: goTo }, 500);
-        if ($(this).hasClass("extLink")) {
-            return false;
-        }
-
-    });
 
     $('.first-play,.video-close').on('click', function() {
         // 视频播放
