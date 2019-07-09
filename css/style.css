@@ -2,13 +2,39 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-05 16:33:08
+ * @Last Modified time: 2019-07-09 16:08:30
  */
 
+.wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.mCSB_inside>.mCSB_container {
+    margin-right: 0;
+}
+.mCSB_scrollTools {
+    z-index: 99;
+}
 .first {
     position: relative;
     height: 1003px;
     background: url('../images/first-bg.jpg') no-repeat center top;
+}
+.first-out {
+     overflow: hidden;
+     margin: 0 auto;
+     margin-top: 59px;
+     width: 1326px;
+     height: 776px;
+}
+.first-out img {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .first-parallax {
@@ -24,9 +50,16 @@
 }
 
 .logo {
-    position: relative;
+    position: absolute;
+    top: 10px;
+    left: 50%;
     z-index: 4;
     text-align: center;
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
+    -ms-transform:translateX(-50%);
+    -o-transform:translateX(-50%);
+    transform:translateX(-50%);
 }
 
 
@@ -231,10 +264,9 @@
 /*导航*/
 
 .menu-box {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     z-index: 2;
+    margin-top: -193px;
     width: 100%;
     height: 193px;
     background: url('../images/menu-bg.png') no-repeat center top;
@@ -305,7 +337,6 @@
     top: 20px;
     right: 0;
     z-index: 1;
-    width: 350px;
 }
 
 .menu-cloud.fixed {
@@ -318,11 +349,11 @@
     position: absolute;
     top: 330px;
     right: 30px;
-    opacity: 0;
-    transform: translateY(-100%);
     z-index: -1;
     overflow: hidden;
     height: 0;
+    opacity: 0;
+    transform: translateY(-100%);
 }
 
 .slide-nav a {
@@ -339,11 +370,11 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 147px;
-    transition: all 0s linear;
     -webkit-transition: all 0s linear;
     -moz-transition: all 0s linear;
     -ms-transition: all 0s linear;
     -o-transition: all 0s linear;
+    transition: all 0s linear;
 }
 
 .slide-nav a:hover,
@@ -360,23 +391,23 @@
     position: absolute;
     top: 48px;
     left: 50%;
+    margin-left: -7px;
     width: 14px;
     height: 10px;
     background: url(../images/slide-nav-top.png) no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     content: ' ';
-    margin-left: -7px;
 }
 
 .menu-cloud.fixed .slide-nav {
-    transform: translateY(0%);
+    height: auto;
+    opacity: 1;
     -webkit-transform: translateY(0%);
     -moz-transform: translateY(0%);
     -ms-transform: translateY(0%);
     -o-transform: translateY(0%);
-    opacity: 1;
-    height: auto;
+    transform: translateY(0%);
 }
 
 
@@ -388,7 +419,7 @@
 .second {
     position: relative;
     height: 1893px;
-    background: url('../images/second-bg.jpg') no-repeat center bottom fixed;
+    background: url('../images/second-bg.jpg') no-repeat center bottom;
 }
 
 .second-border {
@@ -407,10 +438,10 @@
 }
 
 .container .contbox {
+    overflow: hidden;
     margin: 0 auto;
     margin-top: 40px;
     width: 1220px;
-    overflow: hidden;
 }
 
 .banner {
@@ -467,29 +498,29 @@
 
 .news {
     background: url('../images/second-news-bg.png') no-repeat center;
-    transform: translateX(-100%);
     opacity: 0;
+    transform: translateX(-100%);
 }
 
 .follow {
     float: right;
     background: url('../images/second-follow-bg.png') no-repeat center;
-    transform: translateX(100%);
+    opacity: 0;
     -webkit-transform: translateX(100%);
     -moz-transform: translateX(100%);
     -ms-transform: translateX(100%);
-    opacity: 0;
     -o-transform: translateX(100%);
+    transform: translateX(100%);
 }
 
 .news.cur,
 .follow.cur {
-    transform: translateX(0);
+    opacity: 1;
     -webkit-transform: translateX(0);
     -moz-transform: translateX(0);
     -ms-transform: translateX(0);
-    opacity: 1;
     -o-transform: translateX(0);
+    transform: translateX(0);
 }
 
 .news .box,
@@ -1049,20 +1080,20 @@
         -webkit-background-size: 95% 100%;
         background-size: 95% 100%;
         opacity: 1;
-        transform: translateX(0);
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
         -ms-transform: translateX(0);
         -o-transform: translateX(0);
+        transform: translateX(0);
     }
     .follow {
         padding-top: 25px;
-        opacity: 1;
         height: 8.6rem;
         background-image: url('../images/second-follow-bg-m.png');
         -webkit-background-size: 95% 100%;
-        transform: translateX(0);
         background-size: 95% 100%;
+        opacity: 1;
+        transform: translateX(0);
     }
     .news .box,
     .follow .box {

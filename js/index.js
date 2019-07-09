@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 16:16:16 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-05 14:05:07
+ * @Last Modified time: 2019-07-09 18:29:15
  */
 $(function() {
     // 背景音乐播放
@@ -117,6 +117,54 @@ $(function() {
         $(this).addClass('cur').siblings().removeClass('cur');
         ST.returnHtml(i);
     });
-
+    var dummyStyle = document.createElement("div").style,
+        vendor = function () {
+            for (var n, e = "t,webkitT,MozT,msT,OT".split(","), t = 0, r = e.length; r > t; t++)
+                if (n = e[t] + "ransform", n in dummyStyle) return e[t].substr(0, e[t].length - 1);
+            return !1
+        }(),
+        _css3 = vendor ? "-" + vendor.toLowerCase() + "-" : "",
+        translate3d = function (n, e, t) {
+            return "translate(" + n + "," + e + "," + t + ")"
+        };
+    Object.defineProperty(HTMLElement.prototype, "translate3d", {
+        value: function (n, e, t) {
+            this.style[_css3 + "transform"] = "translate3d(" + n + "," + e + "," + t + ")"
+        }
+    });
+    if(!ST.isMobile()){
+        $("#wrapper").mCustomScrollbar({
+            theme: "dark-1",
+            scrollbarPosition: 'inside',
+            scrollInertia: 1000,
+            scrollEasing: "easeOutCirc",
+            mouseWheel: {
+                enable: true,
+                scrollAmount: 100,
+                normalizeDelta: false,
+            },
+            callbacks: {
+                whileScrolling: function () {
+                    var Top = Math.abs(this.mcs.top);
+                    console.log(Top);
+                    
+                    $('.first')[0].translate3d(0, -(Top * .3) + 'px', 0);
+                    $('.first-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
+                    $('.menu-cloud')[0].translate3d(Top * .5 + 'px', 0, 0);
+                    $('.game-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
+                    $('.menu-box')[0].translate3d(0, -(Top * 1) + 'px', 0);
+                    $('.second')[0].translate3d(0, -(Top * 1) + 'px', 0)
+                    $('.third')[0].translate3d(0, -(Top * .2) + 'px', 0);
+                    if(Top > 405){
+                        $('.menu-box')[0].translate3d(0, -(405 + Top * .1) + 'px', 0);
+                        $('.second')[0].translate3d(0, -(Top * 1.5) + 'px', 0);
+                    }
+                    // Top > 1500 && Top < 2600 ? $('.second')[0].translate3d(0, -(1500 - Top * .5 + 1500) + 'px', 0) : (Top > 400 ? $('.second2')[0].translate3d(0, -(Top * 1.5) + 'px', 0) : $('.second')[0].translate3d(0, 0, 0));
+                    Top > 2070 && Top < 2800 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105) + 'px', 0) : $('.third')[0].translate3d(0, -(Top * 1.5) + 'px', 0);
+                    Top > 2700 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105 + Top - 2700) + 'px', 0) : (Top > 2070 && Top < 2800 ? $('.third')[0].translate3d(0, -(2070 - Top + 3105) + 'px', 0) : $('.third')[0].translate3d(0, -(Top * 1.5) + 'px', 0))
+                }
+            }
+        });
+    }
 
 });
