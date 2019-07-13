@@ -1238,6 +1238,8 @@
         overflow: hidden;
         height: 7.56rem;
         position: relative;
+        background-size: 200% auto;
+        background-position: center 0;
     }
     .third-role {
         margin-top: 2.7rem;
@@ -1252,8 +1254,8 @@
         height: 65px;
     }
     .third-role-tab-box {
-        bottom: -10px;
-        left: 0;
+        bottom: 10px;
+        left: 5%;
         -webkit-transform: scale(.45);
         -moz-transform: scale(.45);
         -ms-transform: scale(.45);
@@ -1262,6 +1264,8 @@
         -moz-transform-origin: bottom;
         -ms-transform-origin: bottom;
         transform-origin: bottom;
+        height: 6.5rem;
+        width: 90%;
     }
     .third-role-tab-box .img {
         right: 80px;
