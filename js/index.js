@@ -157,11 +157,15 @@ $(function() {
                         $('.news,.follow').removeClass("cur");
                         $(".slide-nav").removeClass("fixed");
                     }
-
+                    if (Top > 1000) {
+                        $('.game-cloud')[0].translate3d((500 - Top * .5) + 'px', 0, 0);
+                    }
                     if (Top > 1075) {
                         $('.third')[0].translate3d(0, (1275 - Top * 2) + 'px', 0);
                         $('.footer')[0].translate3d(0, (1275 - Top * 2) + 'px', 0);
-                        $('.game-cloud')[0].translate3d((537.5 - Top * .5) + 'px', 0, 0);
+                    }
+                    if (Top > 1200) {
+                        $('.third-cloud')[0].translate3d((Top * .5 - 600) + 'px', 0, 0);
                     }
                     if (Top > 1368) {
                         $('.third-border')[0].translate3d(0, -(Top * 0.05) + 'px', 0);

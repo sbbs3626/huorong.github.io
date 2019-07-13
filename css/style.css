@@ -711,6 +711,12 @@
     height: 1112px;
 }
 
+.third-cloud {
+    position: absolute;
+    top: -150px;
+    right: 0;
+}
+
 .third-title {
     height: 302px;
     background: url('../images/third-title.png') no-repeat center center;
