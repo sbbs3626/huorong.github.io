@@ -62,6 +62,10 @@
     color: #794724;
 }
 
+.crumbs a {
+    color: #794724;
+}
+
 .detail-title {
     padding: 35px 50px;
     text-align: center;

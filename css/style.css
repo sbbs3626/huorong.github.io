@@ -13,7 +13,7 @@
 }
 
 .wrapper .inner {
-    height: 2360px;
+    height: 2330px;
 }
 
 .mCSB_inside>.mCSB_container {
@@ -28,8 +28,9 @@
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 1;
     width: 100%;
-    height: 1003px;
+    height: 953px;
     background: url('../images/first-bg.jpg') no-repeat center top;
 }
 
@@ -42,11 +43,11 @@
 }
 
 .first-out img {
-    -webkit-transform: scale(1.05);
-    -moz-transform: scale(1.05);
-    -ms-transform: scale(1.05);
-    -o-transform: scale(1.05);
-    transform: scale(1.05);
+    -webkit-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .first-parallax {
@@ -95,14 +96,14 @@
 
 .first-people img {
     position: absolute;
-    bottom: 0;
     -webkit-transition: .8s ease;
     -moz-transition: .8s ease;
     transition: .8s ease;
+    bottom: -30px;
 }
 
 .first-people .first-people-1 {
-    left: 144px;
+    left: 124px;
 }
 
 .first-people .first-people-2 {
@@ -126,12 +127,12 @@
 }
 
 .first-people .first-people-7 {
-    bottom: 48px;
+    bottom: 10px;
     left: 440px;
 }
 
 .first-people .first-people-8 {
-    bottom: 98px;
+    bottom: 50px;
     left: 127px;
 }
 
@@ -277,7 +278,7 @@
 
 .menu-box {
     position: absolute;
-    top: 860px;
+    top: 780px;
     left: 0;
     width: 100%;
     z-index: 2;
@@ -426,7 +427,8 @@
 
 .second {
     position: absolute;
-    top: 1053px;
+    z-index: 1;
+    top: 973px;
     left: 0;
     width: 100%;
     height: 1893px;
@@ -702,7 +704,8 @@
 
 .third {
     position: absolute;
-    top: 2750px;
+    z-index: 3;
+    top: 2670px;
     left: 0;
     width: 100%;
     height: 1112px;
@@ -917,8 +920,9 @@
 
 .footer {
     position: absolute;
+    z-index: 4;
     width: 100%;
-    top: 3862px;
+    top: 3782px;
     left: 0;
     padding: 50px 0;
     background: #000000;

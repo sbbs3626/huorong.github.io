@@ -23,8 +23,8 @@ $(function() {
         // 人物动画
         frictionX: 0.2,
         frictionY: 0.4,
-        scalarX: 3.0,
-        scalarY: 3.0,
+        scalarX: 2.0,
+        scalarY: 2.0,
     });
 
     var bannerSwiper = new Swiper('.banner .swiper-container', {
@@ -122,7 +122,7 @@ $(function() {
     });
     if (!ST.isMobile()) {
         var Height = ($(window).height() - 850) * 0.57
-        $('.inner').css('height', 2360 + Height);
+        $('.inner').css('height', 2330 + Height);
         $("#wrapper").mCustomScrollbar({
             theme: "dark-1",
             scrollbarPosition: 'inside',
@@ -138,9 +138,7 @@ $(function() {
                     var Top = Math.abs(this.mcs.top);
                     console.log(Top);
 
-                    $('.first')[0].translate3d(0, -(Top * .1) + 'px', 0);
                     $('.first-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
-                    $('.menu-cloud')[0].translate3d(Top * .5 + 'px', 0, 0);
                     $('.second')[0].translate3d(0, -(Top * .5) + 'px', 0);
                     $('.menu-box')[0].translate3d(0, -(Top * .5) + 'px', 0);
                     if (Top > 400) {
@@ -148,23 +146,22 @@ $(function() {
                         $('.menu-box')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
                         $('.third')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
                         $('.footer')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
+
                     }
                     if (Top > 560) {
                         $('.menu-box')[0].translate3d(0, -(304 + Top * 0.1) + 'px', 0);
                         $('.news,.follow').addClass("cur");
                         $(".slide-nav").addClass("fixed");
+                        $('.menu-cloud')[0].translate3d((Top * .5 - 280) + 'px', 0, 0);
                     } else {
                         $('.news,.follow').removeClass("cur");
                         $(".slide-nav").removeClass("fixed");
-                    }
-                    // 新闻动画
-                    if (Top > 850) {
-                        $('.game-cloud')[0].translate3d((425 - Top * .5) + 'px', 0, 0);
                     }
 
                     if (Top > 1075) {
                         $('.third')[0].translate3d(0, (1275 - Top * 2) + 'px', 0);
                         $('.footer')[0].translate3d(0, (1275 - Top * 2) + 'px', 0);
+                        $('.game-cloud')[0].translate3d((537.5 - Top * .5) + 'px', 0, 0);
                     }
                     if (Top > 1368) {
                         $('.third-border')[0].translate3d(0, -(Top * 0.05) + 'px', 0);
@@ -184,11 +181,13 @@ $(function() {
                 }
             }
         });
-        $('.slide-nav > a').click(function() {
-            var Id = $(this).attr('_id');
-            $("#wrapper").mCustomScrollbar("scrollTo", Id, {
-                scrollEasing: "easeOut"
-            });
+        $('.slide-nav > a,.menu a').click(function() {
+            if ($(this).attr('_id') != undefined) {
+                var Id = $(this).attr('_id');
+                $("#wrapper").mCustomScrollbar("scrollTo", Id, {
+                    scrollEasing: "easeOut"
+                });
+            }
         });
     }
 
