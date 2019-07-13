@@ -81,11 +81,9 @@ var ST = {
     returnHtml: function(i) {
         var _index = ST._index;
         var boxHtml = '<h3>' + roleData[_index][i].name + '</h3>' +
-            '<div class="text">' + roleData[_index][i].description + '</div>' +
-            '<div class="thumb"><img src="images/role-' + (_index + 1) + '/' + 'thumb-' + (i + 1) + '.png"></div>' +
-            '<div class="img"><img src="images/role-' + (_index + 1) + '/' + 'img-' + (i + 1) + '.png"></div>';
+            '<div class="text">' + roleData[_index][i].description + '</div>';
         $('.third-role-tab-box').html(boxHtml);
-
+        $('.third-bg').css('background-image', 'url(images/role-' + (_index + 1) + '/bg-' + (i + 1) + '.jpg)')
     }
 }
 
