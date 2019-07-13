@@ -4,14 +4,30 @@
  * @Last Modified by: Alan.zheng
  * @Last Modified time: 2019-06-24 10:38:35
  */
+
 .first {
+    top: auto;
     height: 660px;
+    position: static;
     background-image: url('../images/first-detail-bg.jpg');
 }
 
 .second {
+    top: auto;
     padding: 1px 0;
     height: auto;
+    position: relative;
+}
+
+.footer {
+    position: static;
+    top: auto;
+}
+
+.menu-box {
+    position: relative;
+    margin-top: -193px;
+    top: auto;
 }
 
 .detail {
@@ -34,7 +50,6 @@
     height: 51px;
     background: url('../images/icon-flower.png') no-repeat;
     content: '';
-
 }
 
 .detail a {
@@ -125,7 +140,6 @@
     color: #fff;
     font-size: 12px;
     line-height: 1;
-
 }
 
 .news-list .type-brown {
@@ -160,6 +174,7 @@
     line-height: 1.5;
 }
 
+
 /*编辑器内容*/
 
 .editor-box {
@@ -178,7 +193,9 @@
     height: auto !important;
 }
 
+
 /*编辑器内容*/
+
 .left {
     float: left;
     padding: 10px;
@@ -242,20 +259,17 @@
 }
 
 @media screen and (max-width:768px) {
-
     .container,
     .left,
     .right,
     .news-list .flright {
         width: 100%;
     }
-
     .second,
     .second-border {
         -webkit-background-size: 100% 100%;
         background-size: 100% 100%;
     }
-
     .detail {
         margin: 15px auto 15px auto;
         width: 94%;
@@ -263,28 +277,22 @@
     .detail::before {
         display: none;
     }
-
     .right {
         display: none;
     }
-
     .detail-title {
         padding: 15px 0;
         font-size: 0.95rem;
     }
-
     .tab a {
         padding-bottom: 10px;
     }
-
     .news-list li {
         padding: 15px 5px;
     }
-
     .news-list .flright .time {
         font-size: .3rem;
     }
-
     .news-list .flright .omg {
         -webkit-box-flex: 1;
         -webkit-flex: 1;
@@ -292,7 +300,6 @@
         -ms-flex: 1;
         flex: 1;
     }
-
     .news-list li .title {
         display: -webkit-box;
         display: -webkit-flex;
@@ -305,13 +312,12 @@
         align-items: center;
         -ms-flex-align: center;
     }
-
     .news-list .flright .text {
         font-size: .3rem;
     }
     .crumbs {
-         padding: 5px 15px;
-         font-size: .3rem;
+        padding: 5px 15px;
+        font-size: .3rem;
     }
     .detail-title-m {
         font-size: .4rem;
