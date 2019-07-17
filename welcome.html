@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>欢迎页面</title>
+    <title>惡靈退散2 - 天下布武編</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/welcome.css">
 </head>
@@ -54,19 +54,19 @@
     <script src="js/flower.js"></script>
 
     <script>
-        $(function() {
+        $(function () {
                 var $audio = $('#bgm')[0];
                 var num = 0;
                 snowflake(); //执行雪花飘落函数
                 // 开门动画
                 $('.nprogress-left .nprogress-bar').animate({
                     width: '100%'
-                }, 1000, function() {
+                }, 1000, function () {
                     $('.nprogress-right .nprogress-bar').animate({
                         width: '100%'
                     }, 1000)
                 });
-                var nprogressNum = setInterval(function() {
+                var nprogressNum = setInterval(function () {
                     $('.nprogress-center .num').html(num++);
                     if (num > 100) {
                         clearInterval(nprogressNum);
@@ -76,15 +76,15 @@
                         $audio.play();
                     }
                 }, 30);
-                $('.enter-text').on('click', function(e) {
+                $('.enter-text').on('click', function (e) {
                     // 进入官网
                     e.preventDefault();
                     $('.enter').addClass('cur');
-                    $('body').css('background', '#fff').fadeOut(3000, function() {
+                    $('body').css('background', '#fff').fadeOut(3000, function () {
                         location.href = $('.enter-text').attr('href');
                     });
                 });
-                $('.bgm').on('click', function() {
+                $('.bgm').on('click', function () {
                     // 背景音乐播放
                     var $this = $(this);
                     if ($this.hasClass('active')) { //判读是否播放
@@ -98,7 +98,7 @@
 
             })
             // 式神动画
-            ! function() {
+            ! function () {
                 var canvasObj = {};
                 var imgArr = {
                     'datiangou': [],
@@ -148,27 +148,41 @@
                     text: '在膽小鬼的眼中，即使是小兵也因恐懼而視為大將。'
                 }];
                 var tipsIndex = 0;
-                setInterval(function() {
-                    var $class = $('.hero-' + tipsText[tipsIndex].key);
-                    myTips($class, tipsText[tipsIndex].text)
-                    tipsIndex++;
-                    if (tipsIndex >= tipsText.length) {
-                        tipsIndex = 0;
-                    }
-                }, 3000);
+                var tipMove = false;
+                var tipsInterval = setInterval(myTips, 4000);
+                $('body').on('mouseenter', '.my-tips', function () {
+                    console.log(1);
+                    tipMove = true;
+                    clearInterval(tipsInterval);
+                });
+                $('body').on('mouseleave', '.my-tips', function () {
+                    console.log(2);
+                    tipMove = false;
+                    tipsInterval = setInterval(myTips, 4000);
+                });
 
                 function addPreZero(num) {
                     return ('00000' + num).slice(-5);
                 }
 
-                function myTips($dom, $text) {
-                    var x = $dom.offset().left;
-                    var y = $dom.offset().top;
-                    var $html = '<div style="top:' + y + 'px;left:' + x + 'px" class="my-tips">' + $text + '</div>';
-                    $('body').append($html);
-                    setTimeout(function() {
-                        $('.my-tips').eq(0).remove();
-                    }, 3000);
+                function myTips() {
+                        $('.my-tips').remove();
+                        var $dom = $('.hero-' + tipsText[tipsIndex].key);
+                        var $text = tipsText[tipsIndex].text;
+                        var x = $dom.offset().left;
+                        var y = $dom.offset().top;
+                        var $html = '<div style="top:' + y + 'px;left:' + x + 'px" class="my-tips">' + $text + '</div>';
+                        $('body').append($html);
+                        setTimeout(function () {
+                            if (!tipMove) {
+                                $('.my-tips').eq(0).remove();
+                            }
+                        }, 3000);
+                        tipsIndex++;
+                        if (tipsIndex >= tipsText.length) {
+                            tipsIndex = 0;
+                        }
+                    
                 }
             }();
     </script>

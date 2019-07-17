@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 16:16:16 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-12 15:17:33
+ * @Last Modified time: 2019-07-17 10:32:05
  */
 $(function() {
     // 背景音乐播放
@@ -48,6 +48,7 @@ $(function() {
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
+            loop:true,
             slidesPerView: 4,
             initialSlide: 2,
             coverflow: {
@@ -67,6 +68,7 @@ $(function() {
             pagination: '.swiper-pagination',
             effect: 'coverflow',
             grabCursor: true,
+            loop: true,
             centeredSlides: true,
             slidesPerView: 4,
             initialSlide: 2,
@@ -121,7 +123,7 @@ $(function() {
         }
     });
     if (!ST.isMobile()) {
-        var Height = ($(window).height() - 850) * 0.57
+        var Height = ($(window).height() - 870) * 0.68
         $('.inner').css('height', 2330 + Height);
         $("#wrapper").mCustomScrollbar({
             theme: "dark-1",
