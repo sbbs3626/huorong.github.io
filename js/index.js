@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 16:16:16 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-17 10:32:05
+ * @Last Modified time: 2019-07-17 15:03:43
  */
 $(function() {
     // 背景音乐播放
@@ -143,18 +143,17 @@ $(function() {
                     $('.first-cloud')[0].translate3d(-(Top * .5) + 'px', 0, 0);
                     $('.second')[0].translate3d(0, -(Top * .5) + 'px', 0);
                     $('.menu-box')[0].translate3d(0, -(Top * .5) + 'px', 0);
+                    $('.menu-cloud')[0].translate3d((Top * .5) + 'px', 0, 0);
                     if (Top > 400) {
                         $('.second')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
                         $('.menu-box')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
                         $('.third')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
                         $('.footer')[0].translate3d(0, (400 * .5 - Top * 1) + 'px', 0);
-
                     }
                     if (Top > 560) {
                         $('.menu-box')[0].translate3d(0, -(304 + Top * 0.1) + 'px', 0);
                         $('.news,.follow').addClass("cur");
                         $(".slide-nav").addClass("fixed");
-                        $('.menu-cloud')[0].translate3d((Top * .5 - 280) + 'px', 0, 0);
                     } else {
                         $('.news,.follow').removeClass("cur");
                         $(".slide-nav").removeClass("fixed");

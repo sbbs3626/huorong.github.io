@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-17 10:15:16
+ * @Last Modified time: 2019-07-17 15:49:00
  */
 
 .wrapper {
@@ -615,7 +615,8 @@
 }
 
 .facebook-box {
-    margin-top: 54px;
+    margin-top: 60px;
+    text-align: center;
 }
 
 
