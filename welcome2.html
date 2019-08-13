@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>惡靈退散2 - 天下布武編</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/welcome.css">
+</head>
+
+<body>
+    <div class="door">
+        <div class="cloud"></div>
+        <div class="door-left"></div>
+        <div class="door-right"></div>
+        <div class="nprogress">
+            <div class="nprogress-left"><span class="nprogress-bar"></span></div>
+            <div class="nprogress-center"><span class="num">0</span>%</div>
+            <div class="nprogress-right"><span class="nprogress-bar"></span></div>
+        </div>
+    </div>
+
+    <div class="welcome" style="display: none;">
+        <div class="bg-canvas" id="datiangou"></div>
+        <!-- <div class="niaoju"></div> -->
+        <div class="flower">
+            <!-- 飘花 -->
+            <div id="snowflake"></div>
+        </div>
+        <div class="bgm">
+            <iframe style="display: none;" src="./media/none.mp3" frameborder="0"></iframe>
+            <audio loop autoplay="autoplay" src="./media/bgm.mp3" id="bgm"></audio>
+        </div>
+        <!-- <div class="logo"><img src="images/logo.png" alt=""></div> -->
+        <div class="enter">
+            <div class="enter-breathe ani"></div>
+            <div class="enter-rotate ani"></div>
+            <a href="index.html" class="enter-text"></a>
+        </div>
+         <div class="hero">
+             <div class="hero-yuedu canvas cur" id="hero-yuedu"></div>
+         </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.transit.js"></script>
+    <script src="js/vFramePlayer.min.js"></script>
+    <script src="js/flower.js"></script>
+
+    <script>
+        $(function () {
+                var $audio = $('#bgm')[0];
+                var num = 0;
+                snowflake(); //执行雪花飘落函数
+                // 开门动画
+                $('.nprogress-left .nprogress-bar').animate({
+                    width: '100%'
+                }, 1000, function () {
+                    $('.nprogress-right .nprogress-bar').animate({
+                        width: '100%'
+                    }, 1000);
+                    heroAni();
+                });
+                var nprogressNum = setInterval(function () {
+                    $('.nprogress-center .num').html(num++);
+                    if (num > 100) {
+                        clearInterval(nprogressNum);
+                        $('.door-left,.door-right,.bgm').addClass('active');
+                        $('.door').fadeOut(1000);
+                        $('.welcome').fadeIn(1000);
+                        $audio.play();
+                    }
+                }, 30);
+                $('.enter-text').on('click', function (e) {
+                    // 进入官网
+                    e.preventDefault();
+                    $('.enter').addClass('cur');
+                    $('body').css('background', '#fff').fadeOut(3000, function () {
+                        location.href = $('.enter-text').attr('href');
+                    });
+                });
+                $('.bgm').on('click', function () {
+                    // 背景音乐播放
+                    var $this = $(this);
+                    if ($this.hasClass('active')) { //判读是否播放
+                        $audio.pause();
+                        $(this).removeClass('active');
+                    } else {
+                        $audio.play(); //没有就播放
+                        $(this).addClass('active');
+                    }
+                });
+                var imgArr = [];
+                for (let i = 0; i < 430; i++) { 
+                    imgArr.push('./images/b/1_' + addPreZero(i) + '.jpg' );
+                }
+                function heroAni(){
+                    var canvasObj = new vFramePlayer({
+                        dom: $('#datiangou')[0],
+                        imgArr: imgArr,
+                        useCanvas: true,
+                        fps: 15,
+                        loop: -1
+                    });
+                    canvasObj.play();
+                    var imgArr2 = [];
+                        for (let g = 0; g < 31; g++) { 
+                            imgArr2.push('./images/hero/yuedu' + '/idle/' + addPreZero(g) + '.png');
+                        }
+                    var canvasObj2 = new vFramePlayer({
+                            dom: $('#hero-yuedu')[0],
+                            imgArr: imgArr2,
+                            useCanvas: true,
+                            fps: 15,
+                            loop: -1
+                    });
+                    canvasObj2.play();
+                    var $text = '給你個神秘禮物喔！（禮品碼序號“WERTYUIOPQASDFGH”';
+                    $('.hero-yuedu').on('click',function(el){
+                        var $this = $(this);
+                        if ($this.hasClass('cur')){
+                            var x = $this.offset().left;
+                            var y = $this.offset().top + 100;
+                            var $html = '<div style="top:' + y + 'px;left:' + x + 'px" class="my-tips">' + $text + '</div>';
+                            $this.removeClass('cur');
+                            $('body').append($html);
+                        }
+                    });
+                }
+                // 式神动画
+                function addPreZero(num) {
+                    return ('00000' + num).slice(-5);
+                }
+            })
+            
+            
+    </script>
+</body>
+
+</html>
