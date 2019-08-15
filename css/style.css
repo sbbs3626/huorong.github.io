@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-17 15:49:00
+ * @Last Modified time: 2019-08-15 17:29:53
  */
 
 .wrapper {
@@ -359,7 +359,7 @@
     right: 30px;
     z-index: 9;
     overflow: hidden;
-    margin-top: -300px;
+    margin-top: -330px;
     height: 0;
     opacity: 0;
     -webkit-transform: translateY(0%);
@@ -371,7 +371,7 @@
 }
 
 .slide-nav.fixed {
-    height: 610px;
+    height: 654px;
     opacity: 1;
 }
 
@@ -403,22 +403,10 @@
 
 .slide-nav .slide-nav-5 {
     position: relative;
+    height: 171px;
+    background: url('../images/slide-qr-bg.png') no-repeat;
     line-height: 150px;
 }
-
-.slide-nav .slide-nav-5::before {
-    position: absolute;
-    top: 48px;
-    left: 50%;
-    margin-left: -7px;
-    width: 14px;
-    height: 10px;
-    background: url(../images/slide-nav-top.png) no-repeat;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
-    content: ' ';
-}
-
 
 /*导航 end*/
 
