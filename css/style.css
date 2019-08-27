@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:30:39 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-08-15 17:29:53
+ * @Last Modified time: 2019-08-27 16:25:39
  */
 
 .wrapper {
@@ -716,6 +716,7 @@
     overflow: hidden;
     height: 810px;
     background: url('../images/role-1/bg-1.jpg') no-repeat center center;
+    transition: all .3s linear;
 }
 
 .third-bg-img {

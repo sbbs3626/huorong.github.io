@@ -2,7 +2,7 @@
  * @Author: Alan.zheng 
  * @Date: 2019-06-18 14:31:24 
  * @Last Modified by: Alan.zheng
- * @Last Modified time: 2019-07-05 16:32:32
+ * @Last Modified time: 2019-08-27 16:23:25
  */
 /*REM begin*/
 // 128 px（ 盒子） / 640 px(设计稿) * 10 == 2 rem;
@@ -82,7 +82,7 @@ var ST = {
         var _index = ST._index;
         var boxHtml = '<h3>' + roleData[_index][i].name + '</h3>' +
             '<div class="text">' + roleData[_index][i].description + '</div>';
-        $('.third-role-tab-box').html(boxHtml);
+        // $('.third-role-tab-box').html(boxHtml);
         $('.third-bg').css('background-image', 'url(images/role-' + (_index + 1) + '/bg-' + (i + 1) + '.jpg)')
     }
 }
