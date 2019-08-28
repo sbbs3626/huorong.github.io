@@ -135,6 +135,14 @@
     bottom: 50px;
     left: 127px;
 }
+.first-qrcode {
+     position: absolute;
+     right: -220px;
+     bottom: -150px;
+     width: 242px;
+     height: 324px;
+     background: url('../images/first-qrcode.png') no-repeat center top;
+}
 
 .first-slogan {
     position: absolute;
